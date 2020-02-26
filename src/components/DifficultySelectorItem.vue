@@ -6,7 +6,7 @@
   >
     <button class="mx-auto more-info-button">i</button>
     <div class="header">{{ item.header }}</div>
-    <div class="small text-gray">{{ item.desc }}</div>
+    <div class="desc">{{ item.desc }}</div>
 
     <button
       :class="{ 'select-button mx-auto': true, 'select-button-hovering': isHovering }"
@@ -32,11 +32,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 .difficulty-selector-item {
   width: 140px;
   height: 188px;
+}
+.desc {
+  font-family: 'Fire Sans';
+  font-weight: 300;
+  font-size: 12px;
+  color: #AAAAAA;
 }
 .header {
   text-align: center;
