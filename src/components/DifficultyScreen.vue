@@ -1,47 +1,43 @@
 <template>
   <div class="difficulty-screen">
-    <div class="header">
-      Como está seu tempo?
-    </div>
-    <div class="sub-header">
-      Quanto mais longa sua sessão de estudos, mais rápido irá aprender!
-    </div>
+    <div class="header">Como está seu tempo?</div>
+    <div class="sub-header">Quanto mais longa sua sessão de estudos, mais rápido irá aprender!</div>
     <DifficultySelector
       :items="[
-        { header: 'Curtinho', desc: '15 a 30 minutos de estudo' },
-        { header: 'Quase lá', desc: '30 a 45 minutos de estudo' },
-        { header: 'Ideal', desc: '45 minutos a 1 hora de estudo' },
-        { header: 'Hardcore', desc: 'Mais de uma hora de estudo' },
+        { header: 'Curtinho', desc: '15 a 30 minutos de estudo', key: 'curtinho', modalDesc: 'Sem problemas, caso tenha poucas cartas ou esteja um pouco sem tempo esse modo de estudo é o ideal. Importante se lembrar que sempre que tiver o modo ideal disponível, deve estudar por ele ok?' },
+        { header: 'Quase lá', desc: '30 a 45 minutos de estudo', key: 'quase-la', modalDesc: 'Estamos no caminho certo! Caso não tenha cartas para o modo ideal, tudo bem estudar por esse.' },
+        { header: 'Ideal', desc: '45 minutos a 1 hora de estudo', key: 'ideal', modalDesc: 'Perfeito! Esse modo garante o tempo de prática necessária para atingir seus objetivos ao longo prazo. Pode ser que em alguns dias não tenha cartas suficientes para estudar, mas sempre que disponível, procure utilizer esse modo!' },
+        { header: 'Hardcore', desc: 'Mais de uma hora de estudo', key: 'hardcore', modalDesc: 'Para quem quiser se desafiar. Nesse modo não existe um limite de tempo. Iremos mostrar cartas até o deck acabar. Uma verdadeira maratona de estudos!' },
       ]"
     />
   </div>
 </template>
 
 <script>
-import DifficultySelector from './DifficultySelector'
+import DifficultySelector from "./DifficultySelector";
 
 export default {
-  name: 'DifficultyScreen',
-  components: { DifficultySelector },
-  props: {
-    msg: String
-  }
-}
+  name: "DifficultyScreen",
+  components: { DifficultySelector }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.difficulty-screen{
-  background: #F0F0F0;
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,400&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+
+.difficulty-screen {
+  background: #f0f0f0;
 }
 .header {
-font-family: 'Roboto';
-font-weight: 700;
-font-size: 30px;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 30px;
 }
 .sub-header {
-font-family: 'Fira Sans';
-font-size: 10px;
+  font-family: "Fira Sans";
+  font-size: 10px;
 }
 h3 {
   margin: 40px 0 0;
