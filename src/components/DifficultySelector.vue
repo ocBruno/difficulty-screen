@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row difficulty-selector">
+    <div class="row mx-auto mt-3 difficulty-selector">
       <DifficultySelectorItem :item="item" v-for="item in items" v-bind:key="item.header" />
     </div>
   </div>
@@ -24,12 +24,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.dificulty-selector {
-  top: 554px;
-  left: 250px;
+.difficulty-selector {
+  padding-top: 50px;
   width: 866px;
   height: 240px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #FFFFFF;
   box-shadow: 0px 3px 10px #4343431A;
   border-radius: 10px;
   opacity: 1;

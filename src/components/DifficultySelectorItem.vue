@@ -4,7 +4,7 @@
     @mouseover="isHovering = true"
     @mouseout="isHovering = false"
   >
-    <button class="mx-auto more-info-button">i</button>
+    <button class="mx-auto more-info-button"><span class="p-1">i</span></button>
     <div class="header">{{ item.header }}</div>
     <div class="desc">{{ item.desc }}</div>
 
@@ -54,13 +54,14 @@ export default {
   opacity: 1;
 }
 .more-info-button {
-  width: 20px;
-  height: 20px;
   border: 2px solid #aaaaaa26;
   border-radius: 24px;
   color: #1cb9ff;
   background: #fff;
   opacity: 1;
+  font-size: 12px;
+  font-weight: 700;
+
 }
 .select-button {
   width: 133px;
@@ -72,6 +73,9 @@ export default {
   border: 2px solid #1cb9ff;
   border-radius: 24px;
   opacity: 0.45;
+}
+button:focus {
+  outline: none;
 }
 .select-button-hovering {
   color: #fff;

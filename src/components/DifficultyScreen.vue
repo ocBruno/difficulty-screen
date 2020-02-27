@@ -1,9 +1,9 @@
 <template>
-  <div class="hello">
-    <div>
+  <div class="difficulty-screen">
+    <div class="header">
       Como está seu tempo?
     </div>
-    <div>
+    <div class="sub-header">
       Quanto mais longa sua sessão de estudos, mais rápido irá aprender!
     </div>
     <DifficultySelector
@@ -31,6 +31,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.difficulty-screen{
+  background: #F0F0F0;
+}
+.header {
+font-family: 'Roboto';
+font-weight: 700;
+font-size: 30px;
+}
+.sub-header {
+font-family: 'Fira Sans';
+font-size: 10px;
+}
 h3 {
   margin: 40px 0 0;
 }
