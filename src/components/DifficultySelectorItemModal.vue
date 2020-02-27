@@ -15,7 +15,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">{{item.header}}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" @mouseover="isHovering = true" @mouseout="isHovering = false" :class="{'close': true, 'close-hover' : isHovering}" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -43,6 +43,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.close {
+  margin: -1rem -5rem -1rem auto !important;
+  padding: 0.4rem 0.4rem !important;
+  width: 40px;
+  color: #1CB9FF; 
+  background: #fff;
+  font-size: 28px;
+  font-weight: 200 !important;
+  border-radius: 19px;
+  opacity: 1;
+}
+.close-hover {
+  color: #fff !important; 
+  background: #1CB9FF;
+
+}
 .modal-title {
   text-align: left;
   font-family: "Roboto";
@@ -51,8 +67,8 @@ export default {
   color: #000000;
 }
 .modal-content {
-
-  overflow: hidden
+  border-radius: 20px;
+  padding: 10px;
 }
 .modal-bg {
   height: 500px;
@@ -60,6 +76,6 @@ export default {
   background-repeat: no-repeat;
   background-size: 362px 272px;
   background-attachment: fixed;
-  background-position-x: 23rem;
+  background-position-x: 20%;
 }
 </style>
