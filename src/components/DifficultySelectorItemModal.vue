@@ -86,14 +86,15 @@ export default {
 }
 .close {
   margin: -1.6rem -4.7rem -1rem auto !important;
-  padding: 0.4rem 0.4rem !important;
+  padding: 0.20rem 0.20rem !important;
   width: 40px;
+  height: 40px;
   outline: 0;
   color: #1CB9FF; 
   background: #fff;
-  font-size: 25px;
+  font-size: 23px;
   font-weight: 200 !important;
-  border-radius: 19px;
+  border-radius: 20px;
   opacity: 1;
 }
 

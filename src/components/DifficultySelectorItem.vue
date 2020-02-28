@@ -82,7 +82,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .difficulty-selector-item {
-margin: 0 0.9em;
+margin: 0.48em 1.5em;
 }
 .difficulty-selector-item:hover {
   cursor: pointer;
@@ -90,7 +90,6 @@ margin: 0 0.9em;
 }
 .stopwatch {
   transition: transform 0.2s linear;
-  transition-delay: 50ms;
   opacity: 0.7;
 }
 .stopwatch-bounce {
@@ -122,7 +121,7 @@ margin: 0 0.9em;
   transition: transform 0.2s linear;
   transition-delay: 50ms;
   line-height: 1;
-
+  margin-bottom: 16px;
 }
 .desc-hovering,
 .header-hovering {  
@@ -168,6 +167,12 @@ margin: 0 0.9em;
   border-radius: 24px;
   transition: color 300;
   transition-delay: 50ms;
+  line-height: 3.2em;
+}
+.select-button-hovering {
+  transform: scale(1.01);
+  color: #fff;
+  background-color: #4ebaff;
 }
 .select-button-disabled {
   opacity: 0.5 !important;
@@ -175,9 +180,5 @@ margin: 0 0.9em;
 button:focus {
   outline: none;
 }
-.select-button-hovering {
-  color: #fff;
-  background-color: #4ebaff;
-  transform: scale(1.01);
-}
+
 </style>

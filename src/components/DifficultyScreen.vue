@@ -70,6 +70,7 @@ export default {
   font-family: "Roboto";
   font-weight: 700;
   font-size: 30px;
+  color: #000000;
   line-height: 1.2;
 }
 .sub-header {
@@ -77,6 +78,7 @@ export default {
   font-size: 12px;
   word-spacing: 0.5px;
   opacity: 0.45;
+  margin-bottom: 1.64em;
 
 }
 h3 {
