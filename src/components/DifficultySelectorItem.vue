@@ -45,7 +45,7 @@
         </g>
       </svg>
     </div>
-    <div class="header">{{ item.header }}</div>
+    <div :class="{'header': true, 'header-hovering': isHovering}">{{ item.header }}</div>
     <div :class="{ 'desc': true, 'desc-hovering': isHovering }">
       {{ item.desc }}
     </div>
@@ -126,12 +126,17 @@ export default {
   font-size: 12px;
   color: #aaaaaa;
   margin-bottom: 10px;
+  transition: transform 0.2s ease-in;
+}
+.desc-hovering, .header-hovering {
+  transform: translateY(-1px);
 }
 .header {
   text-align: center;
   font-family: 'Roboto';
   font-weight: 700;
   letter-spacing: 0;
+  transition: transform 0.2s ease-in;
   color: #000000;
   line-height: 1;
   padding: 10px 0 2px 0 !important;
@@ -167,7 +172,5 @@ button:focus {
   color: #fff;
   background-color: #4ebaff;
 }
-.desc-hovering {
-  font-weight: 700;
-}
+
 </style>
