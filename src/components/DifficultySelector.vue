@@ -12,7 +12,9 @@
       />
       <DifficultySelectorItemModal
         :item="activeModalItem"
+        v-on:closeModal="closeModal"
         v-bind:key="activeModalItem.key + '-modal'"
+        isModalVisible
       />
     </div>
   </div>
@@ -42,7 +44,11 @@ export default {
       this.showModal(this.activeModalItem.key)
     },
     updateSelectedItem (key) {
+      this.items = this.items.map((item) => { return {...item, isDisabled: item.key !== key} })
       this.selectedItemKey = key
+    },
+    closeModal() {
+      this.isModalVisible = false
     },
     setActiveModalItem (item) {
       this.activeModalItem = item
@@ -62,6 +68,7 @@ export default {
   border-radius: 10px;
   opacity: 1;
 }
+
 @media only screen and (min-device-width : 650px) and (max-device-width : 1600px) {
 /* Styles for browsers */
 .difficulty-selector {
