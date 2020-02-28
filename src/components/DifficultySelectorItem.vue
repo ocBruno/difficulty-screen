@@ -2,7 +2,7 @@
   <div
     class="col-sm difficulty-selector-item"
     @mouseover="onHover"
-    @mouseout="isHovering = false"
+    @mouseout="onMouseOut"
     @click="onClick"
   >
     <button class="mx-auto more-info-button">
@@ -80,6 +80,9 @@ export default {
       this.isHovering = true
       this.$emit('setActiveModalItem', this.item)
     },
+    onMouseOut() {
+      this.isHovering = false
+    },
     onClick () {
       this.$emit('updateSelectedItem', this.item.key)
       this.$emit('updateActiveModalItem', this.item)
@@ -95,6 +98,7 @@ export default {
 }
 .stopwatch{
   transition: transform 0.2s ease-in;
+  transition-delay: 50ms;
   opacity: 0.7;
 }
 .stopwatch-bounce{
@@ -127,6 +131,7 @@ export default {
   color: #aaaaaa;
   margin-bottom: 10px;
   transition: transform 0.2s ease-in;
+  transition-delay: 50ms;
 }
 .desc-hovering, .header-hovering {
   transform: translateY(-1px);
@@ -137,6 +142,7 @@ export default {
   font-weight: 700;
   letter-spacing: 0;
   transition: transform 0.2s ease-in;
+  transition-delay: 50ms;
   color: #000000;
   line-height: 1;
   padding: 10px 0 2px 0 !important;
@@ -154,6 +160,7 @@ export default {
   font-weight: 700;
 }
 .select-button {
+  transition: transform 0.2s ease-in;
   width: 133px;
   height: 36px;
   font-family: 'Fira Sans', regular;
@@ -164,6 +171,7 @@ export default {
   border: 2px solid #1cb9ff;
   border-radius: 24px;
   transition: color 300;
+  transition-delay: 50ms;
 }
 button:focus {
   outline: none;
@@ -171,6 +179,8 @@ button:focus {
 .select-button-hovering {
   color: #fff;
   background-color: #4ebaff;
+  transform: scale(1.01);
+
 }
 
 </style>
