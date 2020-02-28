@@ -70,10 +70,14 @@ export default {
   font-family: "Roboto";
   font-weight: 700;
   font-size: 30px;
+  line-height: 1.2;
 }
 .sub-header {
   font-family: "Fira Sans";
-  font-size: 10px;
+  font-size: 12px;
+  word-spacing: 0.5px;
+  opacity: 0.45;
+
 }
 h3 {
   margin: 40px 0 0;

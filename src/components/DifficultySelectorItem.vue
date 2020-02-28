@@ -1,5 +1,5 @@
 <template>
-  <div class="col-sm-auto mx-4 difficulty-selector-item">
+  <div class="col-sm-auto difficulty-selector-item">
     <button @click="onInfoClick" class="mx-auto more-info-button">i</button>
     <div @mouseover="onHover" @mouseout="onMouseOut" @click="onItemClick">
       <div :class="{'mt-3 stopwatch': true, 'stopwatch-bounce': isHovering}">
@@ -81,6 +81,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.difficulty-selector-item {
+margin: 0 0.9em;
+}
 .difficulty-selector-item:hover {
   cursor: pointer;
   user-select: none;
@@ -91,7 +94,7 @@ export default {
   opacity: 0.7;
 }
 .stopwatch-bounce {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   opacity: 1;
 }
 .a {
@@ -109,8 +112,7 @@ export default {
 .e {
   fill: #ffda72;
 }
-.difficulty-selector-item {
-}
+
 .desc {
   font-family: "Fire Sans";
   font-weight: 300;
@@ -119,6 +121,8 @@ export default {
   margin-bottom: 10px;
   transition: transform 0.2s ease-in;
   transition-delay: 50ms;
+  line-height: 1;
+
 }
 .desc-hovering,
 .header-hovering {
@@ -134,7 +138,7 @@ export default {
   color: #000000;
   line-height: 1;
   padding: 10px 0 2px 0 !important;
-  font-size: 24px;
+  font-size: 22px;
   opacity: 1;
 }
 .more-info-button {
@@ -145,21 +149,22 @@ export default {
   opacity: 1;
   font-size: 11px;
   width: 20px;
+  transition: border 100ms ease-in;
   font-weight: 700;
 }
 .more-info-button:hover {
-  border: 1px solid #1cb9ff;
+  border: 1px solid #76d4ff;
 }
 .select-button {
   transition: transform 0.2s ease-in;
-  width: 133px;
-  height: 36px;
+  width: 13em;
+  height: 3.6em;
   font-family: "Fira Sans", regular;
   font-size: 10px;
   letter-spacing: 0.2px;
   color: #1cb9ff;
   background: #fff;
-  border: 2px solid #1cb9ff;
+  border: 2px solid rgba(28, 185, 255, 0.45);
   border-radius: 24px;
   transition: color 300;
   transition-delay: 50ms;

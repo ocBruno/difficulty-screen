@@ -72,8 +72,9 @@ export default {
 @media only screen and (min-device-width : 650px) and (max-device-width : 1600px) {
 /* Styles for browsers */
 .difficulty-selector {
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 15em;
+  margin-right: 15em;
+
 
 }
 }
