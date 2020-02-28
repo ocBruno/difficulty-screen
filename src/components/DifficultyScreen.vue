@@ -63,6 +63,10 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,400&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
 
+@media (min-width: 320px) and (max-width: 480px) {
+  
+
+}
 .difficulty-screen {
   background: #f0f0f0;
 }

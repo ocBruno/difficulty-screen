@@ -81,6 +81,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+
+}
+
 .difficulty-selector-item {
 margin: 0.48em 1.5em;
 }
