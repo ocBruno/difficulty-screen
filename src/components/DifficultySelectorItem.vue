@@ -89,7 +89,7 @@ margin: 0 0.9em;
   user-select: none;
 }
 .stopwatch {
-  transition: transform 0.2s ease-in;
+  transition: transform 0.2s linear;
   transition-delay: 50ms;
   opacity: 0.7;
 }
@@ -119,13 +119,13 @@ margin: 0 0.9em;
   font-size: 12px;
   color: #aaaaaa;
   margin-bottom: 10px;
-  transition: transform 0.2s ease-in;
+  transition: transform 0.2s linear;
   transition-delay: 50ms;
   line-height: 1;
 
 }
 .desc-hovering,
-.header-hovering {
+.header-hovering {  
   transform: translateY(-1px);
 }
 .header {
@@ -133,7 +133,7 @@ margin: 0 0.9em;
   font-family: "Roboto";
   font-weight: 700;
   letter-spacing: 0;
-  transition: transform 0.2s ease-in;
+  transition: transform 0.2s linear;
   transition-delay: 50ms;
   color: #000000;
   line-height: 1;
@@ -149,14 +149,14 @@ margin: 0 0.9em;
   opacity: 1;
   font-size: 11px;
   width: 20px;
-  transition: border 100ms ease-in;
+  transition: border 100ms linear;
   font-weight: 700;
 }
 .more-info-button:hover {
   border: 1px solid #76d4ff;
 }
 .select-button {
-  transition: transform 0.2s ease-in;
+  transition: transform 0.2s linear;
   width: 13em;
   height: 3.6em;
   font-family: "Fira Sans", regular;

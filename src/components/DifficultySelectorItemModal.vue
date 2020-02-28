@@ -81,16 +81,17 @@ export default {
   padding-top: 0.2rem;
   font-family: 'Roboto';
   font-size: 12px;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 
 }
 .close {
-  margin: -1rem -5rem -1rem auto !important;
+  margin: -1.6rem -4.7rem -1rem auto !important;
   padding: 0.4rem 0.4rem !important;
   width: 40px;
+  outline: 0;
   color: #1CB9FF; 
   background: #fff;
-  font-size: 28px;
+  font-size: 25px;
   font-weight: 200 !important;
   border-radius: 19px;
   opacity: 1;

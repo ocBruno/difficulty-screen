@@ -44,7 +44,6 @@ export default {
       this.showModal(this.activeModalItem.key)
     },
     updateSelectedItem (key) {
-      this.items = this.items.map((item) => { return {...item, isDisabled: item.key !== key} })
       this.selectedItemKey = key
     },
     closeModal() {
