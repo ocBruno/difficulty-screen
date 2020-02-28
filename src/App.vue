@@ -1,5 +1,5 @@
 <template>
-  <div id="app" >
+  <div id="app">
     <DifficultyScreen />
   </div>
 </template>
@@ -25,6 +25,16 @@ export default {
   background-color: #F0F0F0;
   padding-top: 60px;
   height: 100vh;
+}
+body {
+  height: 100vh;
+  background-color: #F0F0F0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {

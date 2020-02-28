@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="row mx-auto mt-3 py-3 difficulty-selector">
+  <div class="container-fluid">
+    <div class="difficulty-selector row justify-content-center mt-3 py-3 ">
       <DifficultySelectorItem
         v-for="item in items"
         :item="item"
@@ -57,11 +57,17 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .difficulty-selector {
-  width: 866px;
-  height: 240px;
   background: #ffffff;
   box-shadow: 0px 3px 10px #4343431a;
   border-radius: 10px;
   opacity: 1;
+}
+@media only screen and (min-device-width : 650px) and (max-device-width : 1600px) {
+/* Styles for browsers */
+.difficulty-selector {
+  margin-left: 200px;
+  margin-right: 200px;
+
+}
 }
 </style>
