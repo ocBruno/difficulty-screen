@@ -1,8 +1,19 @@
 <template>
-  <div :class="{'col-sm-auto row align-self-center difficulty-selector-item': true, 'first': isFirst, 'last': isLast}">
+  <div
+    :class="{
+      'col-sm-auto row align-self-center difficulty-selector-item': true,
+      first: isFirst,
+      last: isLast
+    }"
+  >
     <div @mouseover="onHover" @mouseout="onMouseOut" @click="onItemClick">
-    <button @click="onInfoClick" class="more-info-button screen-more-info-button">i</button>
-      <div :class="{'mt-3 stopwatch': true, 'stopwatch-bounce': isHovering}">
+      <button
+        @click.stop="onInfoClick"
+        class="col-sm-auto  more-info-button screen-more-info-button"
+      >
+        i
+      </button>
+      <div :class="{ 'stopwatch': true, 'stopwatch-bounce': isHovering }">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -18,7 +29,13 @@
           <circle class="b" cx="26" cy="26" r="26" />
           <g transform="translate(11 7)">
             <g class="c" transform="translate(1.667 7.383)">
-              <circle class="d" cx="13.125" cy="13.125" r="13.125" transform="translate(0)" />
+              <circle
+                class="d"
+                cx="13.125"
+                cy="13.125"
+                r="13.125"
+                transform="translate(0)"
+              />
               <path
                 class="e"
                 d="M26,15.484V31.972H42.184V17.167l-2.222-4.542Z"
@@ -34,24 +51,35 @@
         </svg>
       </div>
       <span class="header-desc">
-      <div :class="{'header': true, 'header-hovering': isHovering}">{{ item.header }}</div>
-      <div :class="{ 'desc': true, 'desc-hovering': isHovering }">{{ item.desc }}</div>
+        <div :class="{ header: true, 'header-hovering': isHovering }">
+          {{ item.header }}
+        </div>
+        <div :class="{ desc: true, 'desc-hovering': isHovering }">
+          {{ item.desc }}
+        </div>
       </span>
-    <button @click="onInfoClick" class="more-info-button mobile-more-info-button">i</button>
+      <button
+        @click="onInfoClick"
+        class="more-info-button mobile-more-info-button"
+      >
+        i
+      </button>
       <button
         :class="{
-        'select-button mx-auto': true,
-        'select-button-disabled': isDisabled,
-        'select-button-hovering': (!isDisabled && isHovering) || isSelected
-      }"
-      >SELECIONAR</button>
+          'select-button mx-auto': true,
+          'select-button-disabled': isDisabled,
+          'select-button-hovering': (!isDisabled && isHovering) || isSelected
+        }"
+      >
+        SELECIONAR
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "DifficultySelectorItem",
+  name: 'DifficultySelectorItem',
   props: {
     item: Object,
     isSelected: Boolean,
@@ -62,78 +90,92 @@ export default {
   data: () => {
     return {
       isHovering: false
-    };
+    }
   },
   methods: {
-    onHover() {
-      this.isHovering = true;
-      this.$emit("setActiveModalItem", this.item);
+    onHover () {
+      this.isHovering = true
+      this.$emit('setActiveModalItem', this.item)
     },
-    onMouseOut() {
-      this.isHovering = false;
+    onMouseOut () {
+      this.isHovering = false
     },
-    onItemClick() {
-      this.$emit("updateSelectedItem", this.item.key);
-      this.$emit("updateActiveModalItem", this.item);
+    onItemClick () {
+      this.$emit('updateSelectedItem', this.item.key)
+      this.$emit('updateActiveModalItem', this.item)
     },
-    onInfoClick() {
-      this.$emit("updateActiveModalItem", this.item);
+    onInfoClick () {
+      this.$emit('updateActiveModalItem', this.item)
     }
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @media (min-width: 320px) and (max-width: 480px) {
   /* mobile */
-.mobile-more-info-button {
-  display: inline-block;
-}
-.screen-more-info-button {
-  display: none;
-}
+  .mobile-more-info-button {
+    display: inline-block;
+  }
+  .screen-more-info-button {
+    display: none !important;
+    width: 0px !important;
+  }
   .difficulty-selector-item {
     min-width: 6rem;
     background: #fff;
     border-radius: 20px;
     height: 4.8rem;
+    margin: 0.48em 0em !important;
   }
-.select-button {
-  visibility: hidden;
-}
-.header {
-  font-size: 20px !important;
-  text-align:left !important;
-}
-.header-desc {
-  display: inline-block !important;
-}
-.stopwatch {
-  display: inline-block !important;
-}
-
+  .select-button {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  .header {
+    font-size: 14pt !important;
+    font-weight: 600;
+    font-family: "Fira sans";
+    text-align: left !important;
+  }
+  .header-desc {
+    display: inline-block !important;
+  }
+  .stopwatch {
+    display: inline-block !important;
+    margin-right: 1rem;
+  }
+  .desc {
+    margin-bottom: 6px !important; 
+    font-size: 12pt !important;
+    font-weight: 300;
+    font-family: "Fira sans";
+  }
 }
 @media (min-width: 1000px) and (max-width: 1960px) {
-/* laptop desktop screens */
-.first{
-  margin-left: 0 !important;
-}
-.last{
-  margin-right: 0 !important;
-}
-.mobile-more-info-button {
-  display: none;
-}
-.screen-more-info-button {
-  display: inline-block !important;
-}
+  /* laptop desktop screens */
+  .first {
+    margin-left: 0 !important;
+  }
+  .last {
+    margin-right: 0 !important;
+  }
+  .mobile-more-info-button {
+    display: none !important;
+  }
+  .screen-more-info-button {
+    display: inline-block !important;
+    width: 20px !important;
+    margin-bottom: 1.2em;
+  }
+
 }
 .header-desc {
   display: block;
 }
 .difficulty-selector-item {
-  margin: 0.48em 1.6em;
+  margin: 0.68em 1.6em;
 }
 .difficulty-selector-item:hover {
   cursor: pointer;
@@ -142,7 +184,6 @@ export default {
 .stopwatch {
   transition: transform 0.16s linear;
   opacity: 0.7;
-  
 }
 .stopwatch-bounce {
   transform: translateY(-6px);
@@ -165,11 +206,10 @@ export default {
 }
 
 .desc {
-  
-  font-family: "Fire Sans";
+  font-family: 'Fire Sans';
   font-weight: 300;
   font-size: 12px;
-  color: #aaaaaa;
+  color: #AAAAAA;
   margin-bottom: 10px;
   transition: transform 0.16s linear;
   transition-delay: 50ms;
@@ -177,12 +217,12 @@ export default {
   margin-bottom: 16px;
 }
 .desc-hovering,
-.header-hovering {  
+.header-hovering {
   transform: translateY(-1px);
 }
 .header {
   text-align: center;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-weight: 700;
   letter-spacing: 0;
   transition: transform 0.16s linear;
@@ -212,7 +252,7 @@ export default {
   transition: transform 0.16s linear;
   width: 13em;
   height: 3.6em;
-  font-family: "Fira Sans", regular;
+  font-family: 'Fira Sans', regular;
   font-size: 10px;
   letter-spacing: 0.2px;
   color: #1cb9ff;
@@ -234,5 +274,4 @@ export default {
 button:focus {
   outline: none;
 }
-
 </style>

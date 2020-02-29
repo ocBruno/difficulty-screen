@@ -60,11 +60,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,400&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
 
 @media (min-width: 320px) and (max-width: 480px) {
-  
+  .header {
+    text-align: left !important;
+    margin-left: 0.4em;
+  font-size: 30pt !important;
+  }
 
 }
 .difficulty-screen {
@@ -82,7 +86,7 @@ export default {
   font-size: 12px;
   word-spacing: 0.5px;
   opacity: 0.45;
-  margin-bottom: 0.36em;
+  margin-bottom: 0.70em;
 
 }
 h3 {

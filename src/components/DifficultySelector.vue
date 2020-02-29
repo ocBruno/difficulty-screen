@@ -78,14 +78,18 @@ export default {
 .container {
 max-width: 1000px !important;
 }
-  .difficulty-selector {
-    background: #ffffff;
+.difficulty-selector {
+  background: #ffffff;
 }
 }
-@media only screen and (min-device-width : 650px) and (max-device-width : 1364px) {
+@media (min-width: 320px) and (max-width: 480px) {
 /* Styles for mobile */
 .container {
 max-width: 900px;
+}
+
+.difficulty-selector {
+  padding: 2em !important;
 }
 }
 </style>
