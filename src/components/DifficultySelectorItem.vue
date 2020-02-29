@@ -1,6 +1,6 @@
 <template>
-  <div class="col-sm-auto difficulty-selector-item">
-    <button @click="onInfoClick" class="mx-auto more-info-button">i</button>
+  <div :class="{'col-sm-auto align-self-center difficulty-selector-item': true, 'first': isFirst, 'last': isLast}">
+    <button @click="onInfoClick" class="more-info-button">i</button>
     <div @mouseover="onHover" @mouseout="onMouseOut" @click="onItemClick">
       <div :class="{'mt-3 stopwatch': true, 'stopwatch-bounce': isHovering}">
         <svg
@@ -53,7 +53,9 @@ export default {
   props: {
     item: Object,
     isSelected: Boolean,
-    isDisabled: Boolean
+    isDisabled: Boolean,
+    isFirst: Boolean,
+    isLast: Boolean
   },
   data: () => {
     return {
@@ -81,21 +83,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 @media (min-width: 320px) and (max-width: 480px) {
-  
+
 
 }
-
+.first{
+  margin-left: 0 !important;
+}
+.last{
+  margin-right: 0 !important;
+}
 .difficulty-selector-item {
-margin: 0.48em 1.5em;
+  margin: 0.48em 1.6em;
 }
 .difficulty-selector-item:hover {
   cursor: pointer;
   user-select: none;
 }
 .stopwatch {
-  transition: transform 0.2s linear;
+  transition: transform 0.16s linear;
   opacity: 0.7;
 }
 .stopwatch-bounce {
@@ -124,7 +130,7 @@ margin: 0.48em 1.5em;
   font-size: 12px;
   color: #aaaaaa;
   margin-bottom: 10px;
-  transition: transform 0.2s linear;
+  transition: transform 0.16s linear;
   transition-delay: 50ms;
   line-height: 1;
   margin-bottom: 16px;
@@ -138,7 +144,7 @@ margin: 0.48em 1.5em;
   font-family: "Roboto";
   font-weight: 700;
   letter-spacing: 0;
-  transition: transform 0.2s linear;
+  transition: transform 0.16s linear;
   transition-delay: 50ms;
   color: #000000;
   line-height: 1;
@@ -147,6 +153,8 @@ margin: 0.48em 1.5em;
   opacity: 1;
 }
 .more-info-button {
+  padding: 0px;
+  margin-left: 1px;
   border: 2px solid #aaaaaa26;
   border-radius: 24px;
   color: #1cb9ff;
@@ -155,13 +163,12 @@ margin: 0.48em 1.5em;
   font-size: 11px;
   width: 20px;
   transition: border 100ms linear;
-  font-weight: 700;
 }
 .more-info-button:hover {
   border: 1px solid #76d4ff;
 }
 .select-button {
-  transition: transform 0.2s linear;
+  transition: transform 0.16s linear;
   width: 13em;
   height: 3.6em;
   font-family: "Fira Sans", regular;

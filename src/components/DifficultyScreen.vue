@@ -82,7 +82,7 @@ export default {
   font-size: 12px;
   word-spacing: 0.5px;
   opacity: 0.45;
-  margin-bottom: 1.64em;
+  margin-bottom: 0.36em;
 
 }
 h3 {
