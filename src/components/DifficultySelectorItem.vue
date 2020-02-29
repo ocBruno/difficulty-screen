@@ -1,7 +1,7 @@
 <template>
-  <div :class="{'col-sm-auto align-self-center difficulty-selector-item': true, 'first': isFirst, 'last': isLast}">
-    <button @click="onInfoClick" class="more-info-button">i</button>
+  <div :class="{'col-sm-auto row align-self-center difficulty-selector-item': true, 'first': isFirst, 'last': isLast}">
     <div @mouseover="onHover" @mouseout="onMouseOut" @click="onItemClick">
+    <button @click="onInfoClick" class="more-info-button screen-more-info-button">i</button>
       <div :class="{'mt-3 stopwatch': true, 'stopwatch-bounce': isHovering}">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -33,9 +33,11 @@
           </g>
         </svg>
       </div>
+      <span class="header-desc">
       <div :class="{'header': true, 'header-hovering': isHovering}">{{ item.header }}</div>
       <div :class="{ 'desc': true, 'desc-hovering': isHovering }">{{ item.desc }}</div>
-
+      </span>
+    <button @click="onInfoClick" class="more-info-button mobile-more-info-button">i</button>
       <button
         :class="{
         'select-button mx-auto': true,
@@ -84,14 +86,51 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @media (min-width: 320px) and (max-width: 480px) {
-
+  /* mobile */
+.mobile-more-info-button {
+  display: inline-block;
+}
+.screen-more-info-button {
+  display: none;
+}
+  .difficulty-selector-item {
+    min-width: 6rem;
+    background: #fff;
+    border-radius: 20px;
+    height: 4.8rem;
+  }
+.select-button {
+  visibility: hidden;
+}
+.header {
+  font-size: 20px !important;
+  text-align:left !important;
+}
+.header-desc {
+  display: inline-block !important;
+}
+.stopwatch {
+  display: inline-block !important;
+}
 
 }
+@media (min-width: 1000px) and (max-width: 1960px) {
+/* laptop desktop screens */
 .first{
   margin-left: 0 !important;
 }
 .last{
   margin-right: 0 !important;
+}
+.mobile-more-info-button {
+  display: none;
+}
+.screen-more-info-button {
+  display: inline-block !important;
+}
+}
+.header-desc {
+  display: block;
 }
 .difficulty-selector-item {
   margin: 0.48em 1.6em;
@@ -103,6 +142,7 @@ export default {
 .stopwatch {
   transition: transform 0.16s linear;
   opacity: 0.7;
+  
 }
 .stopwatch-bounce {
   transform: translateY(-6px);
@@ -125,6 +165,7 @@ export default {
 }
 
 .desc {
+  
   font-family: "Fire Sans";
   font-weight: 300;
   font-size: 12px;

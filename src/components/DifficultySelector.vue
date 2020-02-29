@@ -63,8 +63,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 .difficulty-selector {
-  background: #ffffff;
   box-shadow: 0px 3px 10px #4343431a;
   border-radius: 10px;
   opacity: 1;
@@ -73,10 +73,13 @@ export default {
   display: inline-flex;
 }
 
-@media only screen and (min-device-width : 1200px) and (max-device-width : 1600px) {
+@media only screen and (min-device-width : 1200px) and (max-device-width : 1960px) {
 /* Styles for laptop, desktops and other wide screens */
 .container {
 max-width: 1000px !important;
+}
+  .difficulty-selector {
+    background: #ffffff;
 }
 }
 @media only screen and (min-device-width : 650px) and (max-device-width : 1364px) {
