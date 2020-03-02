@@ -63,8 +63,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 .difficulty-selector {
   box-shadow: 0px 3px 10px #4343431a;
+  user-select: none !important;
   border-radius: 10px;
   opacity: 1;
   margin-top: 1em;

@@ -13,30 +13,25 @@
         id="screen-more-info-button"
         :class="{
           'col-sm-auto more-info-button': true,
-          opaque: !isSelected
+          'more-info-button-active': !isSelected
         }"
       >
         i
       </button>
       <div :class="{ opaque: isSelected }">
-        <DifficultyStopwatchHardcore :isHovering="isHovering" />
-        <span class="header-desc">
-          <div :class="{ header: true, 'header-hovering': isHovering }">
+        <DifficultyStopwatchCurtinho v-if="item.key === 'curtinho'" :isHovering="isHovering" />
+        <DifficultyStopwatchQuaseLa v-if="item.key === 'quase-la'" :isHovering="isHovering" />
+        <DifficultyStopwatchIdeal v-if="item.key === 'ideal'" :isHovering="isHovering" />
+        <DifficultyStopwatchHardcore v-if="item.key === 'hardcore'" :isHovering="isHovering" />
+        <span class="header-desc row">
+          <div
+            :class="{ header: true, 'col-sm-12 header-hovering': isHovering }"
+          >
             {{ item.header }}
           </div>
           <div :class="{ desc: true, 'desc-hovering': isHovering }">
             {{ item.desc }}
           </div>
-          <button
-            @click.stop="onInfoClick"
-            id="mobile-more-info-button"
-            :class="{
-              'more-info-button': true,
-              'more-info-button-hover opaque': !isSelected
-            }"
-          >
-            i
-          </button>
         </span>
         <button
           :class="{
@@ -50,14 +45,28 @@
         </button>
       </div>
     </div>
+      <button
+        @click.stop="onInfoClick"
+        id="mobile-more-info-button"
+        :class="{
+          'more-info-button': true,
+          'more-info-button-hover opaque': !isSelected
+        }"
+      >
+        <span> i </span>
+      </button>
+
   </div>
 </template>
 
 <script>
+import DifficultyStopwatchCurtinho from "./Stopwatches/DifficultyStopwatchCurtinho"
 import DifficultyStopwatchHardcore from "./Stopwatches/DifficultyStopwatchHardcore"
+import DifficultyStopwatchIdeal from "./Stopwatches/DifficultyStopwatchIdeal"
+import DifficultyStopwatchQuaseLa from "./Stopwatches/DifficultyStopwatchQuaseLa"
 export default {
   name: "DifficultySelectorItem",
-  components: { DifficultyStopwatchHardcore },
+  components: { DifficultyStopwatchIdeal, DifficultyStopwatchHardcore, DifficultyStopwatchCurtinho, DifficultyStopwatchQuaseLa},
   props: {
     item: Object,
     isDisabled: Boolean,
@@ -99,9 +108,16 @@ export default {
 <style scoped>
 @media (min-width: 320px) and (max-width: 720px) {
   /* mobile */
+  .header-desc {
+    transform: translateY(0.7em);
+}
   .more-info-button {
     display: inline-block;
-    margin-left: 8em !important;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    margin-left: auto !important;
+    padding-bottom: 1px;
+    font-weight: 700;
   }
   #screen-more-info-button {
     display: none !important;
@@ -109,7 +125,6 @@ export default {
   .ideal {
     border: #ffbb00 2pt solid;
   }
-
   .difficulty-selector-item {
     min-width: 6rem;
     background: #fff;
@@ -131,7 +146,7 @@ export default {
     display: inline-block !important;
   }
   .stopwatch {
-    display: inline-block !important;
+    display: inline-flex !important;
     margin-right: 1rem;
   }
   .desc {
@@ -140,6 +155,13 @@ export default {
     font-weight: 300;
     font-family: "Fira sans";
   }
+.modal-dialog {
+   position:fixed;
+   top:auto;
+   right:auto;
+   left:auto;
+   bottom:0 !important;
+}  
 }
 @media (min-width: 1000px) and (max-width: 1960px) {
   /* laptop desktop screens */
@@ -153,6 +175,8 @@ export default {
     display: inline-block !important;
     width: 20px !important;
     margin-bottom: 1.2em;
+    font-weight: 400;
+
   }
   #mobile-more-info-button {
     display: none !important;
@@ -174,29 +198,6 @@ export default {
 .difficulty-selector-item:hover {
   cursor: pointer;
   user-select: none;
-}
-.stopwatch {
-  transition: transform 0.16s linear;
-  opacity: 0.7;
-}
-.stopwatch-bounce {
-  transform: translateY(-6px);
-  opacity: 1;
-}
-.a {
-  fill: #f6d476;
-}
-.b {
-  fill: #1cb9ff;
-}
-.c {
-  clip-path: url(#a);
-}
-.d {
-  fill: #fff;
-}
-.e {
-  fill: #ffda72;
 }
 
 .desc {
@@ -231,16 +232,25 @@ export default {
   padding: 0px;
   margin-left: 1px;
   border: 2px solid #aaaaaa26;
+  font-size: 11pt;
+  font-family: 'Roboto';
   border-radius: 24px;
   color: #1cb9ff;
   background: #fff;
   opacity: 1;
-  font-size: 11px;
-  width: 20px;
+  width: 22px;
+  height: 22px;
   transition: border 100ms linear;
 }
+  #mobile-more-info-button {
+    transform: scale(1.5);
+  }
 .more-info-button:hover {
   border: 1px solid #76d4ff;
+}
+.more-info-button-active {
+  border: 1px solid #76d4ff;
+
 }
 .select-button {
   transition: transform 0.16s linear;
