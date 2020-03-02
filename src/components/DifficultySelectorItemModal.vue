@@ -7,25 +7,35 @@
       :ref="item.key + '-modal'"
       tabindex="-1"
       role="dialog"
-      aria-labelledby="exampleModalLabel"
+      aria-labelledby="difficulty-modal"
       aria-hidden="true"
-      
     >
-      <img src="../assets/pale-waiting.png" :class="{'modal-bg': true, 'modal-bg-closed': !this.isModalVisible}"/>
-    
+      <img
+        src="../assets/pale-waiting.png"
+        :class="{ 'modal-bg': true, 'modal-bg-closed': !this.isModalVisible }"
+      />
+
       <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">{{item.modalHeader}}</h5>
-              <button type="button" @mouseover="isHovering = true" @mouseout="isHovering = false" :class="{'close': true, 'close-hover' : isHovering}" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body text-left" v-html="item.modalDesc"></div>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="difficulty-modal">
+              {{ item.modalHeader }}
+            </h5>
+            <button
+              type="button"
+              @mouseover="isHovering = true"
+              @mouseout="isHovering = false"
+              :class="{ close: true, 'close-hover': isHovering }"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
+          <div class="modal-body text-left" v-html="item.modalDesc"></div>
         </div>
       </div>
-
+    </div>
   </div>
 </template>
 
@@ -33,7 +43,7 @@
 import $ from 'jquery'
 
 export default {
-  name: "DifficultySelectorItemModal",
+  name: 'DifficultySelectorItemModal',
   props: {
     item: Object,
     isModalVisible: Boolean
@@ -41,19 +51,20 @@ export default {
   data: () => {
     return {
       isHovering: false
-    };
+    }
   },
-  mounted() {
+  mounted () {
     // capture bootstrap modal close event
-    $(this.$refs[this.item.key + '-modal']).on("hidden.bs.modal", ()=>this.$emit('closeModal')
-)
+    $(this.$refs[this.item.key + '-modal']).on('hidden.bs.modal', () =>
+      this.$emit('closeModal')
+    )
   },
   methods: {
-    closeModal(key) {
+    closeModal (key) {
       $(`#${key}-modal`).modal('close')
     }
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -68,11 +79,10 @@ export default {
   opacity: 1;
   transition: opacity 150ms ease-in-out;
   pointer-events: none;
-
 }
 .modal-bg-closed {
-    opacity: 0;
-} 
+  opacity: 0;
+}
 .modal-header {
   border-bottom: 0px;
   padding-bottom: 0.2rem;
@@ -82,15 +92,14 @@ export default {
   font-family: 'Roboto';
   font-size: 12px;
   padding-bottom: 2rem;
-
 }
 .close {
   margin: -1.6rem -4.7rem -1rem auto !important;
-  padding: 0.20rem 0.20rem !important;
+  padding: 0.2rem 0.2rem !important;
   width: 40px;
   height: 40px;
   outline: 0;
-  color: #1CB9FF; 
+  color: #1cb9ff;
   background: #fff;
   font-size: 23px;
   font-weight: 200 !important;
@@ -99,13 +108,12 @@ export default {
 }
 
 .close-hover {
-  color: #fff !important; 
-  background: #1CB9FF;
-
+  color: #fff !important;
+  background: #1cb9ff;
 }
 .modal-title {
   text-align: left;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-weight: 700;
   font-size: 24px;
   color: #000000;
@@ -117,8 +125,8 @@ export default {
 /* laptop and most screens */
 @media only screen and (min-width: 1200px) {
   .modal-dialog {
-  margin-top: 200px;
-  width: 324px;
-}
+    margin-top: 200px;
+    width: 324px;
+  }
 }
 </style>

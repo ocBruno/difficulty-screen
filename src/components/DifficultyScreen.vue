@@ -87,6 +87,11 @@ export default {
     visibility: hidden !important;
     opacity: 0 !important;
   }
+       .stopwatch-screen > img {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
   .screen-sub-header {
     margin-top: 1em; 
     text-align: left;
@@ -97,6 +102,11 @@ export default {
 }
   @media (min-width: 721px) and (max-width: 1960px) {
      .stopwatch-mobile > svg {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+       .stopwatch-mobile > img {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
