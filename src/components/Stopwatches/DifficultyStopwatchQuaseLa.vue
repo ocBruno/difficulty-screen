@@ -37,12 +37,10 @@ export default {
   name: "DifficultyStopwatchQuaseLa",
   props: {
     isHovering: Boolean,
-    isMobile: Boolean,
   },
   data: () => {
     return {
       isHovering: false,
-      isMobile: false
     };
   }
 };

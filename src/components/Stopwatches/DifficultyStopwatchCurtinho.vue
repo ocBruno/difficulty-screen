@@ -37,12 +37,10 @@ export default {
   name: "DifficultyStopwatchCurtinho",
   props: {
     isHovering: Boolean,
-    isMobile: Boolean,
   },
   data: () => {
     return {
       isHovering: false,
-      isMobile: false
     };
   }
 };

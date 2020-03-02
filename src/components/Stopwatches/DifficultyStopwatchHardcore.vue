@@ -37,15 +37,14 @@
 export default {
   name: "DifficultyStopwatchHardcore",
   props: {
-    isHovering: Boolean,
-    isMobile: Boolean,
+    isHovering: Boolean
   },
   data: () => {
     return {
-      isHovering: false,
-      isMobile: false
+      windowWidth: 0
     };
-  }
+  },
+
 };
 </script>
 

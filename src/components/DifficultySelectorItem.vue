@@ -2,6 +2,7 @@
   <div
     :class="{
       'col-sm-auto row align-self-center difficulty-selector-item': true,
+      ideal: isIdeal,
       first: isFirst,
       last: isLast
     }"
@@ -9,81 +10,54 @@
     <div @mouseover="onHover" @mouseout="onMouseOut" @click="onItemClick">
       <button
         @click.stop="onInfoClick"
-        :class="{'col-sm-auto  more-info-button screen-more-info-button': true, 'more-info-button-hover opaque': !isSelected}"
-      >
-        i
-      </button>
-      <div :class="{'opaque': isSelected}">
-      <div :class="{ 'stopwatch': true, 'stopwatch-bounce': isHovering}">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="52"
-          height="52"
-          viewBox="0 0 52 52"
-        >
-          <defs style>
-            <clipPath id="a">
-              <circle class="a" cx="13.125" cy="13.125" r="13.125" />
-            </clipPath>
-          </defs>
-          <circle class="b" cx="26" cy="26" r="26" />
-          <g transform="translate(11 7)">
-            <g class="c" transform="translate(1.667 7.383)">
-              <circle
-                class="d"
-                cx="13.125"
-                cy="13.125"
-                r="13.125"
-                transform="translate(0)"
-              />
-              <path
-                class="e"
-                d="M26,15.484V31.972H42.184V17.167l-2.222-4.542Z"
-                transform="translate(-12.667 -17.41)"
-              />
-            </g>
-            <path
-              class="d"
-              d="M24.5,1.5h-10V4.833h10Zm6.717,10.65,2.367-2.367a18.414,18.414,0,0,0-2.35-2.35L28.867,9.8a15,15,0,1,0,2.35,2.35ZM19.5,33.167A11.667,11.667,0,1,1,31.167,21.5,11.658,11.658,0,0,1,19.5,33.167Z"
-              transform="translate(-4.5 -1.5)"
-            />
-          </g>
-        </svg>
-      </div>
-      <span class="header-desc">
-        <div :class="{ header: true, 'header-hovering': isHovering }">
-          {{ item.header }}
-        </div>
-        <div :class="{ desc: true, 'desc-hovering': isHovering }">
-          {{ item.desc }}
-        </div>
-      </span>
-      <button
-        @click="onInfoClick"
-        class="more-info-button mobile-more-info-button"
-      >
-        i
-      </button>
-      <button
+        id="screen-more-info-button"
         :class="{
-          'select-button mx-auto': true,
-          'select-button-hovering': isHovering,
-          'translucid': !isHovering,
-          'opaque': isSelected
+          'col-sm-auto more-info-button': true,
+          opaque: !isSelected
         }"
       >
-        SELECIONAR
+        i
       </button>
-    </div>
+      <div :class="{ opaque: isSelected }">
+        <DifficultyStopwatchHardcore :isHovering="isHovering" />
+        <span class="header-desc">
+          <div :class="{ header: true, 'header-hovering': isHovering }">
+            {{ item.header }}
+          </div>
+          <div :class="{ desc: true, 'desc-hovering': isHovering }">
+            {{ item.desc }}
+          </div>
+          <button
+            @click.stop="onInfoClick"
+            id="mobile-more-info-button"
+            :class="{
+              'more-info-button': true,
+              'more-info-button-hover opaque': !isSelected
+            }"
+          >
+            i
+          </button>
+        </span>
+        <button
+          :class="{
+            'select-button mx-auto': true,
+            'select-button-hovering': isHovering,
+            translucid: !isHovering,
+            opaque: isSelected
+          }"
+        >
+          SELECIONAR
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import {DifficultyStopwatchHardcore, DifficultyStopwatchQuasela, DifficultyStopwatchIdeal, DifficultyStopwatchCurtinho} from './Stopwatches'
+import DifficultyStopwatchHardcore from "./Stopwatches/DifficultyStopwatchHardcore"
 export default {
-  name: 'DifficultySelectorItem',
+  name: "DifficultySelectorItem",
+  components: { DifficultyStopwatchHardcore },
   props: {
     item: Object,
     isDisabled: Boolean,
@@ -97,21 +71,22 @@ export default {
     }
   },
   methods: {
-    onHover () {
+    onHover() {
       this.isHovering = true
-      this.$emit('setActiveModalItem', this.item)
+      this.$emit("setActiveModalItem", this.item)
     },
-    onMouseOut () {
+    onMouseOut() {
       this.isHovering = false
     },
-    onItemClick () {
-      this.$emit('updateSelectedItem', this.item.key)
-      this.$emit('updateActiveModalItem', this.item)
+    onItemClick() {
+      this.$emit("updateSelectedItem", this.item.key)
+      this.$emit("updateActiveModalItem", this.item)
     },
-    onInfoClick () {
-      this.$emit('updateActiveModalItem', this.item)
+    onInfoClick() {
+      this.$emit("updateActiveModalItem", this.item)
     }
   },
+  mounted() {},
   computed: {
     isIdeal() {
       return this.item.key === "ideal"
@@ -122,16 +97,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 720px) {
   /* mobile */
-  .mobile-more-info-button {
+  .more-info-button {
     display: inline-block;
     margin-left: 8em !important;
   }
-  .screen-more-info-button {
+  #screen-more-info-button {
     display: none !important;
-    width: 0px !important;
   }
+  .ideal {
+    border: #ffbb00 2pt solid;
+  }
+
   .difficulty-selector-item {
     min-width: 6rem;
     background: #fff;
@@ -157,7 +135,7 @@ export default {
     margin-right: 1rem;
   }
   .desc {
-    margin-bottom: 6px !important; 
+    margin-bottom: 6px !important;
     font-size: 12pt !important;
     font-weight: 300;
     font-family: "Fira sans";
@@ -171,23 +149,22 @@ export default {
   .last {
     margin-right: 0 !important;
   }
-  .mobile-more-info-button {
-    display: none !important;
-  }
-  .screen-more-info-button {
+  .more-info-button {
     display: inline-block !important;
     width: 20px !important;
     margin-bottom: 1.2em;
   }
-
+  #mobile-more-info-button {
+    display: none !important;
+  }
 }
 .opaque {
   opacity: 1 !important;
-
 }
 .translucid {
   opacity: 0.5;
 }
+
 .header-desc {
   display: block;
 }
@@ -223,10 +200,10 @@ export default {
 }
 
 .desc {
-  font-family: 'Fire Sans';
+  font-family: "Fire Sans";
   font-weight: 300;
   font-size: 12px;
-  color: #AAAAAA;
+  color: #aaaaaa;
   margin-bottom: 10px;
   transition: transform 0.16s linear;
   transition-delay: 50ms;
@@ -239,7 +216,7 @@ export default {
 }
 .header {
   text-align: center;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 700;
   letter-spacing: 0;
   transition: transform 0.16s linear;
@@ -265,14 +242,11 @@ export default {
 .more-info-button:hover {
   border: 1px solid #76d4ff;
 }
-.more-info-button-hover {
-  border: 1px solid #76d4ff;
-}
 .select-button {
   transition: transform 0.16s linear;
   width: 13em;
   height: 3.6em;
-  font-family: 'Fira Sans', regular;
+  font-family: "Fira Sans", regular;
   font-size: 10px;
   letter-spacing: 0.2px;
   color: #1cb9ff;

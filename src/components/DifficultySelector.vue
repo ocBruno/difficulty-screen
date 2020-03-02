@@ -5,57 +5,57 @@
         v-for="item in items"
         :item="item"
         :isFirst="item === items[0]"
-        :isLast="item === items[items.length-1]"
+        :isLast="item === items[items.length - 1]"
         v-on:updateSelectedItem="updateSelectedItem"
         v-on:updateActiveModalItem="updateActiveModalItem"
         v-on:setActiveModalItem="setActiveModalItem"
-        :isSelected="selectedItemKey === item.key "
+        :isSelected="selectedItemKey === item.key"
         v-bind:key="item.key + '-item'"
       />
     </div>
-      <DifficultySelectorItemModal
-        :item="activeModalItem"
-        v-on:closeModal="closeModal"
-        v-bind:key="activeModalItem.key + '-modal'"
-        isModalVisible
-      />
+    <DifficultySelectorItemModal
+      :item="activeModalItem"
+      v-on:closeModal="closeModal"
+      v-bind:key="activeModalItem.key + '-modal'"
+      isModalVisible
+    />
   </div>
 </template>
 
 <script>
-import DifficultySelectorItem from './DifficultySelectorItem'
-import DifficultySelectorItemModal from './DifficultySelectorItemModal'
-import $ from 'jquery'
+import DifficultySelectorItem from "./DifficultySelectorItem"
+import DifficultySelectorItemModal from "./DifficultySelectorItemModal"
+import $ from "jquery"
 
 export default {
-  name: 'DifficultySelector',
+  name: "DifficultySelector",
   components: { DifficultySelectorItem, DifficultySelectorItemModal },
   props: {
-    items: Array
+    items: Array,
   },
-  data: (items) => {
+  data: items => {
     return {
       isModalVisible: false,
       activeModalItem: {},
-      selectedItemKey: 'ideal'
+      selectedItemKey: "ideal"
     }
   },
   methods: {
-    updateActiveModalItem () {
+    updateActiveModalItem() {
       this.isModalVisible = true
       this.showModal(this.activeModalItem.key)
     },
-    updateSelectedItem (key) {
+    updateSelectedItem(key) {
       this.selectedItemKey = key
     },
     closeModal() {
       this.isModalVisible = false
     },
-    setActiveModalItem (item) {
+    setActiveModalItem(item) {
       this.activeModalItem = item
     },
-    showModal (key) {
-      $(`#${key}-modal`).modal('show')
+    showModal(key) {
+      $(`#${key}-modal`).modal("show")
     }
   }
 }
@@ -63,7 +63,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 .difficulty-selector {
   box-shadow: 0px 3px 10px #4343431a;
   border-radius: 10px;
@@ -73,23 +72,23 @@ export default {
   display: inline-flex;
 }
 
-@media only screen and (min-device-width : 1200px) and (max-device-width : 1960px) {
-/* Styles for laptop, desktops and other wide screens */
-.container {
-max-width: 1000px !important;
-}
-.difficulty-selector {
-  background: #ffffff;
-}
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1960px) {
+  /* Styles for laptop, desktops and other wide screens */
+  .container {
+    max-width: 1000px !important;
+  }
+  .difficulty-selector {
+    background: #ffffff;
+  }
 }
 @media (min-width: 320px) and (max-width: 480px) {
-/* Styles for mobile */
-.container {
-max-width: 900px;
-}
+  /* Styles for mobile */
+  .container {
+    max-width: 900px;
+  }
 
-.difficulty-selector {
-  padding: 2em !important;
-}
+  .difficulty-selector {
+    padding: 2em !important;
+  }
 }
 </style>
