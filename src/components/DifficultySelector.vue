@@ -31,7 +31,7 @@ export default {
   name: "DifficultySelector",
   components: { DifficultySelectorItem, DifficultySelectorItemModal },
   props: {
-    items: Array,
+    items: Array
   },
   data: items => {
     return {
@@ -63,34 +63,33 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 .difficulty-selector {
-  box-shadow: 0px 3px 10px #4343431a;
   user-select: none !important;
   border-radius: 10px;
   opacity: 1;
-  margin-top: 1em;
-  padding: 0.8em 1em;
   display: inline-flex;
 }
 
-@media only screen and (min-device-width: 1200px) and (max-device-width: 1960px) {
+@media only screen and (min-width: 721px) and (max-width: 1960px) {
   /* Styles for laptop, desktops and other wide screens */
   .container {
     max-width: 1000px !important;
   }
   .difficulty-selector {
+    padding: 0.8em 1em;
+    margin-top: 1em;
+    box-shadow: 0px 3px 10px #4343431a;
     background: #ffffff;
   }
 }
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 720px) {
   /* Styles for mobile */
   .container {
     max-width: 900px;
   }
 
   .difficulty-selector {
-    padding: 2em !important;
+    padding: 0 1.8rem !important;
   }
 }
 </style>

@@ -1,8 +1,10 @@
 <template>
   <div class="d-inline-flex stopwatch-container">
     <div
-      id="stopwatch-screen"
-      :class="{ stopwatch: true, 'stopwatch-bounce': isHovering }"
+      :class="{
+        'stopwatch stopwatch-screen': true,
+        'stopwatch-bounce': isHovering
+      }"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -41,8 +43,10 @@
       </svg>
     </div>
     <div
-      id="stopwatch-mobile"
-      :class="{ stopwatch: true, 'stopwatch-bounce': isHovering }"
+      :class="{
+        'stopwatch stopwatch-mobile': true,
+        'stopwatch-bounce': isHovering
+      }"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -102,31 +106,22 @@ export default {
     margin-right: 2em !important;
   }
 
-  #stopwatch-screen {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
+  .a {
+    fill: #00aee0;
   }
-            .a {
-              fill: #00aee0;
-            }
-            .b {
-              clip-path: url(#a);
-            }
-            .c {
-              fill: #fff;
-            }
-            .d {
-              fill: #0027c5;
-            }
+  .b {
+    clip-path: url(#a);
+  }
+  .c {
+    fill: #fff;
+  }
+  .d {
+    fill: #0027c5;
+  }
 }
 @media (min-width: 1000px) and (max-width: 1960px) {
   /* laptop desktop screens */
-  #stopwatch-mobile {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-  }
+
   .a {
     fill: #f6d476;
   }

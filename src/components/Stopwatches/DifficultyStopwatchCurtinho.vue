@@ -1,6 +1,11 @@
 <template>
   <div class="d-inline-flex stopwatch-container">
-    <div id="stopwatch-screen" :class="{'stopwatch': true, 'stopwatch-bounce': isHovering }">
+    <div
+      :class="{
+        'stopwatch stopwatch-screen': true,
+        'stopwatch-bounce': isHovering
+      }"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -37,7 +42,12 @@
         </g>
       </svg>
     </div>
-    <div id="stopwatch-mobile" :class="{'stopwatch': true, 'stopwatch-bounce': isHovering }">
+    <div
+      :class="{
+        'stopwatch stopwatch-mobile': true,
+        'stopwatch-bounce': isHovering
+      }"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -93,50 +103,39 @@ export default {
 @media (min-width: 320px) and (max-width: 480px) {
   /* mobile */
   .stopwatch-container {
-margin-right: 2em !important;
-}
-
-  #stopwatch-screen {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
+    margin-right: 2em !important;
   }
+
   .a {
-  fill: #00aee0;
-}
-.b {
-  clip-path: url(#a);
-}
-.c {
-  fill: #fff;
-}
-.d {
-  fill: #0027c5;
-}
+    fill: #00aee0;
+  }
+  .b {
+    clip-path: url(#a);
+  }
+  .c {
+    fill: #fff;
+  }
+  .d {
+    fill: #0027c5;
+  }
 }
 @media (min-width: 1000px) and (max-width: 1960px) {
   /* laptop desktop screens */
-  #stopwatch-mobile {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-  }
   .a {
-  fill: #f6d476;
-}
-.b {
-  fill: #1cb9ff;
-}
-.c {
-  clip-path: url(#a);
-}
-.d {
-  fill: #fff;
-}
-.e {
-  fill: #ffda72;
-}
-
+    fill: #f6d476;
+  }
+  .b {
+    fill: #1cb9ff;
+  }
+  .c {
+    clip-path: url(#a);
+  }
+  .d {
+    fill: #fff;
+  }
+  .e {
+    fill: #ffda72;
+  }
 }
 
 .stopwatch {
@@ -147,5 +146,4 @@ margin-right: 2em !important;
   transform: translateY(-6px);
   opacity: 1;
 }
-
 </style>

@@ -19,10 +19,22 @@
         i
       </button>
       <div :class="{ opaque: isSelected }">
-        <DifficultyStopwatchCurtinho v-if="item.key === 'curtinho'" :isHovering="isHovering" />
-        <DifficultyStopwatchQuaseLa v-if="item.key === 'quase-la'" :isHovering="isHovering" />
-        <DifficultyStopwatchIdeal v-if="item.key === 'ideal'" :isHovering="isHovering" />
-        <DifficultyStopwatchHardcore v-if="item.key === 'hardcore'" :isHovering="isHovering" />
+        <DifficultyStopwatchCurtinho
+          v-if="item.key === 'curtinho'"
+          :isHovering="isHovering"
+        />
+        <DifficultyStopwatchQuaseLa
+          v-if="item.key === 'quase-la'"
+          :isHovering="isHovering"
+        />
+        <DifficultyStopwatchIdeal
+          v-if="item.key === 'ideal'"
+          :isHovering="isHovering"
+        />
+        <DifficultyStopwatchHardcore
+          v-if="item.key === 'hardcore'"
+          :isHovering="isHovering"
+        />
         <span class="header-desc row">
           <div
             :class="{ header: true, 'col-sm-12 header-hovering': isHovering }"
@@ -45,17 +57,16 @@
         </button>
       </div>
     </div>
-      <button
-        @click.stop="onInfoClick"
-        id="mobile-more-info-button"
-        :class="{
-          'more-info-button': true,
-          'more-info-button-hover opaque': !isSelected
-        }"
-      >
-        <span> i </span>
-      </button>
-
+    <button
+      @click.stop="onInfoClick"
+      id="mobile-more-info-button"
+      :class="{
+        'more-info-button': true,
+        'more-info-button-hover opaque': !isSelected
+      }"
+    >
+      <span> i </span>
+    </button>
   </div>
 </template>
 
@@ -66,7 +77,12 @@ import DifficultyStopwatchIdeal from "./Stopwatches/DifficultyStopwatchIdeal"
 import DifficultyStopwatchQuaseLa from "./Stopwatches/DifficultyStopwatchQuaseLa"
 export default {
   name: "DifficultySelectorItem",
-  components: { DifficultyStopwatchIdeal, DifficultyStopwatchHardcore, DifficultyStopwatchCurtinho, DifficultyStopwatchQuaseLa},
+  components: {
+    DifficultyStopwatchIdeal,
+    DifficultyStopwatchHardcore,
+    DifficultyStopwatchCurtinho,
+    DifficultyStopwatchQuaseLa
+  },
   props: {
     item: Object,
     isDisabled: Boolean,
@@ -110,7 +126,7 @@ export default {
   /* mobile */
   .header-desc {
     transform: translateY(0.7em);
-}
+  }
   .more-info-button {
     display: inline-block;
     margin-top: auto !important;
@@ -145,25 +161,22 @@ export default {
   .header-desc {
     display: inline-block !important;
   }
-  .stopwatch {
-    display: inline-flex !important;
-    margin-right: 1rem;
-  }
+
   .desc {
     margin-bottom: 6px !important;
     font-size: 12pt !important;
     font-weight: 300;
     font-family: "Fira sans";
   }
-.modal-dialog {
-   position:fixed;
-   top:auto;
-   right:auto;
-   left:auto;
-   bottom:0 !important;
-}  
+  .modal-dialog {
+    position: fixed;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: 0 !important;
+  }
 }
-@media (min-width: 1000px) and (max-width: 1960px) {
+@media (min-width: 721px) and (max-width: 1960px) {
   /* laptop desktop screens */
   .first {
     margin-left: 0 !important;
@@ -176,7 +189,6 @@ export default {
     width: 20px !important;
     margin-bottom: 1.2em;
     font-weight: 400;
-
   }
   #mobile-more-info-button {
     display: none !important;
@@ -201,7 +213,7 @@ export default {
 }
 
 .desc {
-  font-family: "Fire Sans";
+  font-family: "Fira Sans";
   font-weight: 300;
   font-size: 12px;
   color: #aaaaaa;
@@ -209,7 +221,8 @@ export default {
   transition: transform 0.16s linear;
   transition-delay: 50ms;
   line-height: 1;
-  margin-bottom: 16px;
+  margin-bottom: 13px;
+  margin-top: 3px;
 }
 .desc-hovering,
 .header-hovering {
@@ -233,7 +246,7 @@ export default {
   margin-left: 1px;
   border: 2px solid #aaaaaa26;
   font-size: 11pt;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   border-radius: 24px;
   color: #1cb9ff;
   background: #fff;
@@ -242,15 +255,14 @@ export default {
   height: 22px;
   transition: border 100ms linear;
 }
-  #mobile-more-info-button {
-    transform: scale(1.5);
-  }
+#mobile-more-info-button {
+  transform: scale(1.3);
+}
 .more-info-button:hover {
   border: 1px solid #76d4ff;
 }
 .more-info-button-active {
   border: 1px solid #76d4ff;
-
 }
 .select-button {
   transition: transform 0.16s linear;

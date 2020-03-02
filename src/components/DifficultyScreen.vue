@@ -1,7 +1,7 @@
 <template>
   <div class="difficulty-screen">
-    <div class="header">Como está seu tempo?</div>
-    <div class="sub-header">
+    <div class="screen-header">Como está seu tempo?</div>
+    <div class="screen-sub-header">
       Quanto mais longa sua sessão de estudos, mais rápido irá aprender!
     </div>
     <DifficultySelector
@@ -54,9 +54,7 @@ export default {
   data: () => {
     return { windowWidth: window.innerWidth }
   },
-  computed: {
-
-  },
+  computed: {},
   mounted() {
     this.$nextTick(() => {
       window.addEventListener("resize", this.onResize)
@@ -66,36 +64,64 @@ export default {
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize)
   },
-    onResize() {
-      this.windowWidth = window.innerWidth
-    }
+  onResize() {
+    this.windowWidth = window.innerWidth
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600|Roboto:400,700&display=swap");
 
-@media (min-width: 320px) and (max-width: 480px) {
-  .header {
-    text-align: left !important;
-    margin-left: 0.4em;
+@media (min-width: 320px) and (max-width: 720px) {
+  .screen-header {
+    text-align: left;
+    margin-left: 2rem;
     font-size: 30pt !important;
+    line-height: 1;
+  }
+
+  .stopwatch-screen > svg {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  .screen-sub-header {
+    margin-top: 1em; 
+    text-align: left;
+    font-size: 14px;
+
+    margin-left: 2rem;
   }
 }
+  @media (min-width: 721px) and (max-width: 1960px) {
+     .stopwatch-mobile > svg {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+    .screen-header {
+      line-height: 1.2;
+    }
+    .screen-sub-header {
+      text-align: center;
+      font-size: 12px;
+    }
+  }
+
+
 .difficulty-screen {
   background: #f0f0f0;
 }
-.header {
+.screen-header {
   font-family: "Roboto";
   font-weight: 700;
   font-size: 30px;
   color: #000000;
-  line-height: 1.2;
 }
-.sub-header {
+.screen-sub-header {
   font-family: "Fira Sans";
-  font-size: 12px;
   word-spacing: 0.5px;
   opacity: 0.45;
   margin-bottom: 0.7em;
