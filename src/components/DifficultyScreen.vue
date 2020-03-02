@@ -76,7 +76,6 @@ export default {
 .stopwatch {
   transition: transform 0.16s linear;
   opacity: 0.7;
-  margin-top: 100% !important;
 }
 
 .difficulty-screen {
@@ -109,6 +108,9 @@ a {
   color: #42b983;
 }
 @media (min-width: 320px) and (max-width: 720px) {
+  .stopwatch {
+    margin-top: 100% !important;
+  }
   .stopwatch-bounce {
   transform: translateY(-2px);
   opacity: 1;

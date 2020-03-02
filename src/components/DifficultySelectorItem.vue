@@ -263,7 +263,7 @@ export default {
   transition: border 100ms linear;
 }
 #mobile-more-info-button {
-  transform: scale(1.3);
+  transform: scale(1.1);
 }
 .more-info-button:hover {
   border: 1px solid #76d4ff;
