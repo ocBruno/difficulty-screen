@@ -37,7 +37,7 @@ export default {
     return {
       isModalVisible: false,
       activeModalItem: {},
-      selectedItemKey: undefined
+      selectedItemKey: 'ideal'
     }
   },
   methods: {

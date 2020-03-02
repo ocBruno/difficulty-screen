@@ -9,11 +9,12 @@
     <div @mouseover="onHover" @mouseout="onMouseOut" @click="onItemClick">
       <button
         @click.stop="onInfoClick"
-        class="col-sm-auto  more-info-button screen-more-info-button"
+        :class="{'col-sm-auto  more-info-button screen-more-info-button': true, 'more-info-button-hover opaque': !isSelected}"
       >
         i
       </button>
-      <div :class="{ 'stopwatch': true, 'stopwatch-bounce': isHovering }">
+      <div :class="{'opaque': isSelected}">
+      <div :class="{ 'stopwatch': true, 'stopwatch-bounce': isHovering}">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -67,23 +68,26 @@
       <button
         :class="{
           'select-button mx-auto': true,
-          'select-button-disabled': isDisabled,
-          'select-button-hovering': (!isDisabled && isHovering) || isSelected
+          'select-button-hovering': isHovering,
+          'translucid': !isHovering,
+          'opaque': isSelected
         }"
       >
         SELECIONAR
       </button>
     </div>
+    </div>
   </div>
 </template>
 
 <script>
+import {DifficultyStopwatchHardcore, DifficultyStopwatchQuasela, DifficultyStopwatchIdeal, DifficultyStopwatchCurtinho} from './Stopwatches'
 export default {
   name: 'DifficultySelectorItem',
   props: {
     item: Object,
-    isSelected: Boolean,
     isDisabled: Boolean,
+    isSelected: Boolean,
     isFirst: Boolean,
     isLast: Boolean
   },
@@ -107,6 +111,11 @@ export default {
     onInfoClick () {
       this.$emit('updateActiveModalItem', this.item)
     }
+  },
+  computed: {
+    isIdeal() {
+      return this.item.key === "ideal"
+    }
   }
 }
 </script>
@@ -117,6 +126,7 @@ export default {
   /* mobile */
   .mobile-more-info-button {
     display: inline-block;
+    margin-left: 8em !important;
   }
   .screen-more-info-button {
     display: none !important;
@@ -170,6 +180,13 @@ export default {
     margin-bottom: 1.2em;
   }
 
+}
+.opaque {
+  opacity: 1 !important;
+
+}
+.translucid {
+  opacity: 0.5;
 }
 .header-desc {
   display: block;
@@ -248,6 +265,9 @@ export default {
 .more-info-button:hover {
   border: 1px solid #76d4ff;
 }
+.more-info-button-hover {
+  border: 1px solid #76d4ff;
+}
 .select-button {
   transition: transform 0.16s linear;
   width: 13em;
@@ -268,9 +288,7 @@ export default {
   color: #fff;
   background-color: #4ebaff;
 }
-.select-button-disabled {
-  opacity: 0.5 !important;
-}
+
 button:focus {
   outline: none;
 }
