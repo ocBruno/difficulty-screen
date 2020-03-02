@@ -48,38 +48,8 @@
         'stopwatch-bounce': isHovering
       }"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="24"
-        height="28"
-        viewBox="0 0 24 28"
-      >
-        <defs>
-          <clipPath id="a">
-            <circle class="a" cx="10.5" cy="10.5" r="10.5" />
-          </clipPath>
-        </defs>
-        <g class="b" transform="translate(1.333 5.906)">
-          <circle
-            class="c"
-            cx="10.5"
-            cy="10.5"
-            r="10.5"
-            transform="translate(0)"
-          />
-          <path
-            class="d"
-            d="M6.921,20.63,19.6,34.293l5.378,3.048,13.97-3.048V16.258L37.17,12.625Z"
-            transform="translate(-15.333 -16.453)"
-          />
-        </g>
-        <path
-          class="e"
-          d="M20.5,1.5h-8V4.167h8Zm5.373,8.52,1.893-1.893a14.731,14.731,0,0,0-1.88-1.88L23.993,8.14a12,12,0,1,0,1.88,1.88ZM16.5,26.833A9.333,9.333,0,1,1,25.833,17.5,9.327,9.327,0,0,1,16.5,26.833Z"
-          transform="translate(-4.5 -1.5)"
-        />
-      </svg>
+      <img src="./png/hardcore.png" alt="Ideal"/>
+
     </div>
   </div>
 </template>
@@ -100,7 +70,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 720px) {
   /* mobile */
   .stopwatch-container {
     margin-right: 2em !important;
@@ -122,7 +92,7 @@ export default {
     fill: #0027c5;
   }
 }
-@media (min-width: 1000px) and (max-width: 1960px) {
+@media (min-width: 721px) and (max-width: 1960px) {
   /* laptop desktop screens */
 
   .a {

@@ -1,0 +1,101 @@
+[33mcommit 4d9ff8928d3db130632d020f17b7f16f3cff715c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: ocBruno <brunocgmxus@gmail.com>
+Date:   Sat Feb 29 02:03:04 2020 -0300
+
+    adjust mobile version
+
+[33mcommit 52199597a286ed21bf0458adc4b8a1de90a50703[m
+Author: ocBruno <brunocgmxus@gmail.com>
+Date:   Fri Feb 28 23:16:46 2020 -0300
+
+    update mobile version layout.
+
+[33mcommit e2d3d663d2814b774c1310f612b7456d633e9ff6[m
+Author: ocBruno <brunocgmxus@gmail.com>
+Date:   Fri Feb 28 22:11:43 2020 -0300
+
+    adjust web version
+
+[33mcommit 861afd01a5c531134bae2eb85f3974974a4b5e0c[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Bruno Costa <brunocgmxus@gmail.com>
+Date:   Fri Feb 28 15:48:08 2020 -0300
+
+    add media queries
+
+[33mcommit 989975ce21094fbef0b3812a3f34d77fce85d181[m
+Author: Bruno Costa <brunocgmxus@gmail.com>
+Date:   Fri Feb 28 15:45:04 2020 -0300
+
+    fix font sizing issues
+
+[33mcommit b978f6b0cf6a143b87e669732f05c7714551a9ae[m
+Author: Bruno Costa <brunocgmxus@gmail.com>
+Date:   Fri Feb 28 15:28:08 2020 -0300
+
+    web design adjustments
+
+[33mcommit 66a1c9c5d9349d236bfee91536efa7dcfdd5a5ba[m
+Author: Bruno Costa <brunocgmxus@gmail.com>
+Date:   Fri Feb 28 15:12:25 2020 -0300
+
+    Design adjustments
+
+[33mcommit a2dd740ee2633f3600be7d968b45b851f250ef1e[m
+Author: Bruno Costa <brunocgmxus@gmail.com>
+Date:   Fri Feb 28 14:27:05 2020 -0300
+
+    update
+
+[33mcommit ceeb87fc1a6782411ac26766149a768b2380b985[m
+Author: ocBruno <brunocgmxus@gmail.com>
+Date:   Fri Feb 28 01:32:09 2020 -0300
+
+    missing card hover debounce, design adjustments, xd assets, and others
+
+[33mcommit 76fd76ad3f3429b20c391c486679122f0682dd62[m
+Author: ocBruno <brunocgmxus@gmail.com>
+Date:   Thu Feb 27 23:30:23 2020 -0300
+
+    Add media queries
+
+[33mcommit 4473decec77f8befe39d577350c87dc54692f01d[m
+Author: ocBruno <brunocgmxus@gmail.com>
+Date:   Thu Feb 27 23:01:37 2020 -0300
+
+    Fix hover animation on item header and desc
+
+[33mcommit 78a2aa4f8f9adc94cbf13eb29e864cfd2c4f819b[m
+Author: ocBruno <brunocgmxus@gmail.com>
+Date:   Thu Feb 27 18:49:22 2020 -0300
+
+    Add transitions, selected state, others
+
+[33mcommit 0fcda6fd60c5dfdf211d5855d2c77c79c97ca5de[m
+Author: Bruno Costa <brunocgmxus@gmail.com>
+Date:   Thu Feb 27 16:06:23 2020 -0300
+
+    add modal and boilerplate stopwatch timers
+
+[33mcommit fab47714f92e19b8edf5da68883844d348af8308[m
+Author: ocBruno <brunocgmxus@gmail.com>
+Date:   Wed Feb 26 23:00:57 2020 -0300
+
+    update difficulty screen
+
+[33mcommit e19d06a3188ba227de633bea8a16e48807a80085[m
+Author: ocBruno <brunocgmxus@gmail.com>
+Date:   Wed Feb 26 19:20:26 2020 -0300
+
+    add item content
+
+[33mcommit ec2f0b61b0f833b8ef33ddefa09cdec0bfe9a5ae[m
+Author: ocBruno <brunocgmxus@gmail.com>
+Date:   Wed Feb 26 18:53:12 2020 -0300
+
+    Begin structuring components, screen and adding styling
+
+[33mcommit 2f50dd60c35f33195a8e3a09a1d88b8a0795f393[m
+Author: Bruno Costa <brunocgmxus@gmail.com>
+Date:   Wed Feb 26 15:09:22 2020 -0300
+
+    init
