@@ -46,25 +46,25 @@
 </template>
 
 <script>
-import DifficultySelector from "./DifficultySelector"
+import DifficultySelector from './DifficultySelector'
 
 export default {
-  name: "DifficultyScreen",
+  name: 'DifficultyScreen',
   components: { DifficultySelector },
   data: () => {
     return { windowWidth: window.innerWidth }
   },
   computed: {},
-  mounted() {
+  mounted () {
     this.$nextTick(() => {
-      window.addEventListener("resize", this.onResize)
+      window.addEventListener('resize', this.onResize)
     })
   },
 
-  beforeDestroy() {
-    window.removeEventListener("resize", this.onResize)
+  beforeDestroy () {
+    window.removeEventListener('resize', this.onResize)
   },
-  onResize() {
+  onResize () {
     this.windowWidth = window.innerWidth
   }
 }
@@ -72,66 +72,24 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-@import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600|Roboto:400,700&display=swap");
-
-@media (min-width: 320px) and (max-width: 720px) {
-  .screen-header {
-    text-align: left;
-    margin-left: 2rem;
-    font-size: 30pt !important;
-    line-height: 1;
-  }
-
-  .stopwatch-screen > svg {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-  }
-       .stopwatch-screen > img {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-  }
-  .screen-sub-header {
-    margin-top: 1em; 
-    text-align: left;
-    font-size: 14px;
-
-    margin-left: 2rem;
-  }
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600|Roboto:400,700&display=swap');
+.stopwatch {
+  transition: transform 0.16s linear;
+  opacity: 0.7;
+  margin-top: 100% !important;
 }
-  @media (min-width: 721px) and (max-width: 1960px) {
-     .stopwatch-mobile > svg {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-  }
-       .stopwatch-mobile > img {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-  }
-    .screen-header {
-      line-height: 1.2;
-    }
-    .screen-sub-header {
-      text-align: center;
-      font-size: 12px;
-    }
-  }
-
 
 .difficulty-screen {
   background: #f0f0f0;
 }
 .screen-header {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-weight: 700;
   font-size: 30px;
   color: #000000;
 }
 .screen-sub-header {
-  font-family: "Fira Sans";
+  font-family: 'Fira Sans';
   word-spacing: 0.5px;
   opacity: 0.45;
   margin-bottom: 0.7em;
@@ -150,4 +108,61 @@ li {
 a {
   color: #42b983;
 }
+@media (min-width: 320px) and (max-width: 720px) {
+  .stopwatch-bounce {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+  .screen-header {
+    text-align: left;
+    margin-left: 2rem;
+    font-size: 30pt !important;
+    line-height: 1;
+  }
+  .modal-dialog {
+    bottom: 0;
+    position: absolute !important;
+  }
+  .stopwatch-screen > svg {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  .stopwatch-screen > img {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  .screen-sub-header {
+    margin-top: 1em;
+    text-align: left;
+    font-size: 14px;
+
+    margin-left: 2rem;
+  }
+}
+@media (min-width: 721px) and (max-width: 1960px) {
+  .stopwatch-bounce {
+  transform: translateY(-6px);
+  opacity: 1;
+}
+  .stopwatch-mobile > svg {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  .stopwatch-mobile > img {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  .screen-header {
+    line-height: 1.2;
+  }
+  .screen-sub-header {
+    text-align: center;
+    font-size: 12px;
+  }
+}
+
 </style>

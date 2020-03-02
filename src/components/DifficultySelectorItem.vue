@@ -18,7 +18,13 @@
       >
         i
       </button>
-      <div :class="{ opaque: isSelected }">
+      <div
+        :class="{
+          translucid: !isHovering,
+
+          opaque: isSelected
+        }"
+      >
         <DifficultyStopwatchCurtinho
           v-if="item.key === 'curtinho'"
           :isHovering="isHovering"
@@ -49,7 +55,6 @@
           :class="{
             'select-button mx-auto': true,
             'select-button-hovering': isHovering,
-            translucid: !isHovering,
             opaque: isSelected
           }"
         >
@@ -71,12 +76,12 @@
 </template>
 
 <script>
-import DifficultyStopwatchCurtinho from "./Stopwatches/DifficultyStopwatchCurtinho"
-import DifficultyStopwatchHardcore from "./Stopwatches/DifficultyStopwatchHardcore"
-import DifficultyStopwatchIdeal from "./Stopwatches/DifficultyStopwatchIdeal"
-import DifficultyStopwatchQuaseLa from "./Stopwatches/DifficultyStopwatchQuaseLa"
+import DifficultyStopwatchCurtinho from './Stopwatches/DifficultyStopwatchCurtinho'
+import DifficultyStopwatchHardcore from './Stopwatches/DifficultyStopwatchHardcore'
+import DifficultyStopwatchIdeal from './Stopwatches/DifficultyStopwatchIdeal'
+import DifficultyStopwatchQuaseLa from './Stopwatches/DifficultyStopwatchQuaseLa'
 export default {
-  name: "DifficultySelectorItem",
+  name: 'DifficultySelectorItem',
   components: {
     DifficultyStopwatchIdeal,
     DifficultyStopwatchHardcore,
@@ -96,25 +101,25 @@ export default {
     }
   },
   methods: {
-    onHover() {
+    onHover () {
       this.isHovering = true
-      this.$emit("setActiveModalItem", this.item)
+      this.$emit('setActiveModalItem', this.item)
     },
-    onMouseOut() {
+    onMouseOut () {
       this.isHovering = false
     },
-    onItemClick() {
-      this.$emit("updateSelectedItem", this.item.key)
-      this.$emit("updateActiveModalItem", this.item)
+    onItemClick () {
+      this.$emit('updateSelectedItem', this.item.key)
+      this.$emit('updateActiveModalItem', this.item)
     },
-    onInfoClick() {
-      this.$emit("updateActiveModalItem", this.item)
+    onInfoClick () {
+      this.$emit('updateActiveModalItem', this.item)
     }
   },
-  mounted() {},
+  mounted () {},
   computed: {
-    isIdeal() {
-      return this.item.key === "ideal"
+    isIdeal () {
+      return this.item.key === 'ideal'
     }
   }
 }
@@ -155,7 +160,7 @@ export default {
   .header {
     font-size: 14pt !important;
     font-weight: 600;
-    font-family: "Fira sans";
+    font-family: 'Fira sans';
     text-align: left !important;
   }
   .header-desc {
@@ -166,7 +171,7 @@ export default {
     margin-bottom: 6px !important;
     font-size: 12pt !important;
     font-weight: 300;
-    font-family: "Fira sans";
+    font-family: 'Fira sans';
   }
   .modal-dialog {
     position: fixed;
@@ -203,6 +208,8 @@ export default {
 
 .header-desc {
   display: block;
+  transform: translateY(-2%);
+
 }
 .difficulty-selector-item {
   margin: 0.68em 1.6em;
@@ -213,7 +220,7 @@ export default {
 }
 
 .desc {
-  font-family: "Fira Sans";
+  font-family: 'Fira Sans';
   font-weight: 300;
   font-size: 12px;
   color: #aaaaaa;
@@ -230,7 +237,7 @@ export default {
 }
 .header {
   text-align: center;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-weight: 700;
   letter-spacing: 0;
   transition: transform 0.16s linear;
@@ -246,7 +253,7 @@ export default {
   margin-left: 1px;
   border: 2px solid #aaaaaa26;
   font-size: 11pt;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   border-radius: 24px;
   color: #1cb9ff;
   background: #fff;
@@ -268,7 +275,7 @@ export default {
   transition: transform 0.16s linear;
   width: 13em;
   height: 3.6em;
-  font-family: "Fira Sans", regular;
+  font-family: 'Fira Sans', regular;
   font-size: 10px;
   letter-spacing: 0.2px;
   color: #1cb9ff;

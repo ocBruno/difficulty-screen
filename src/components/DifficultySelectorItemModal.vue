@@ -69,12 +69,32 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@media only screen and (min-width: 721px) {
+  /* laptop and most screens */
+  .close {
+    margin: -1.6rem -4.7rem -1rem auto !important;
+  }
+  .modal-dialog {
+    margin-top: 200px;
+    width: 324px;
+  }
+  .modal-bg {
+    top: 22%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 720px) {
+  /* Styles for mobile */
+  .modal-bg {
+    top: 36%;
+    left: 0 !important;
+  }
+}
 .modal {
   user-select: none;
 }
 .modal-bg {
   position: absolute;
-  top: 22%;
   left: 22%;
   opacity: 1;
   transition: opacity 150ms ease-in-out;
@@ -94,7 +114,6 @@ export default {
   padding-bottom: 2rem;
 }
 .close {
-  margin: -1.6rem -4.7rem -1rem auto !important;
   padding: 0.2rem 0.2rem !important;
   width: 40px;
   height: 40px;
@@ -121,12 +140,5 @@ export default {
 .modal-content {
   border-radius: 20px;
   padding: 10px;
-}
-/* laptop and most screens */
-@media only screen and (min-width: 1200px) {
-  .modal-dialog {
-    margin-top: 200px;
-    width: 324px;
-  }
 }
 </style>

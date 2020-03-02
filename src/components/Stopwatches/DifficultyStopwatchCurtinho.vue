@@ -48,15 +48,14 @@
         'stopwatch-bounce': isHovering
       }"
     >
-      <img src="./png/curtinho.png" alt="Ideal"/>
-
+      <img src="./png/curtinho.png" alt="Ideal" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "DifficultyStopwatchIdeal",
+  name: 'DifficultyStopwatchIdeal',
   props: {
     isHovering: Boolean
   },
@@ -108,12 +107,5 @@ export default {
   }
 }
 
-.stopwatch {
-  transition: transform 0.16s linear;
-  opacity: 0.7;
-}
-.stopwatch-bounce {
-  transform: translateY(-6px);
-  opacity: 1;
-}
+
 </style>

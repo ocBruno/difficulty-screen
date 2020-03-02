@@ -23,12 +23,12 @@
 </template>
 
 <script>
-import DifficultySelectorItem from "./DifficultySelectorItem"
-import DifficultySelectorItemModal from "./DifficultySelectorItemModal"
-import $ from "jquery"
+import DifficultySelectorItem from './DifficultySelectorItem'
+import DifficultySelectorItemModal from './DifficultySelectorItemModal'
+import $ from 'jquery'
 
 export default {
-  name: "DifficultySelector",
+  name: 'DifficultySelector',
   components: { DifficultySelectorItem, DifficultySelectorItemModal },
   props: {
     items: Array
@@ -37,25 +37,25 @@ export default {
     return {
       isModalVisible: false,
       activeModalItem: {},
-      selectedItemKey: "ideal"
+      selectedItemKey: 'ideal'
     }
   },
   methods: {
-    updateActiveModalItem() {
+    updateActiveModalItem () {
       this.isModalVisible = true
       this.showModal(this.activeModalItem.key)
     },
-    updateSelectedItem(key) {
+    updateSelectedItem (key) {
       this.selectedItemKey = key
     },
-    closeModal() {
+    closeModal () {
       this.isModalVisible = false
     },
-    setActiveModalItem(item) {
+    setActiveModalItem (item) {
       this.activeModalItem = item
     },
-    showModal(key) {
-      $(`#${key}-modal`).modal("show")
+    showModal (key) {
+      $(`#${key}-modal`).modal('show')
     }
   }
 }
