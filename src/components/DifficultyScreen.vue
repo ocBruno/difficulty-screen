@@ -51,22 +51,7 @@ import DifficultySelector from './DifficultySelector'
 export default {
   name: 'DifficultyScreen',
   components: { DifficultySelector },
-  data: () => {
-    return { windowWidth: window.innerWidth }
-  },
-  computed: {},
-  mounted () {
-    this.$nextTick(() => {
-      window.addEventListener('resize', this.onResize)
-    })
-  },
-
-  beforeDestroy () {
-    window.removeEventListener('resize', this.onResize)
-  },
-  onResize () {
-    this.windowWidth = window.innerWidth
-  }
+  data: () => {},
 }
 </script>
 

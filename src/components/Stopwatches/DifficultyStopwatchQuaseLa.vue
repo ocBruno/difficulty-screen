@@ -59,11 +59,7 @@ export default {
   props: {
     isHovering: Boolean
   },
-  data: () => {
-    return {
-      windowWidth: 0
-    }
-  }
+  data: () => {}
 }
 </script>
 

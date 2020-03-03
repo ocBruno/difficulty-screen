@@ -135,7 +135,6 @@ export default {
 }
 .header-desc {
   display: block;
-  transform: translateY(-2%);
 }
 .difficulty-selector-item {
   margin: 0.68em 1.6em;
@@ -169,7 +168,7 @@ export default {
   transition-delay: 50ms;
   color: #000000;
   line-height: 1;
-  padding: 10px 0 2px 0 !important;
+  padding: 10px 0 2px 0;
   font-size: 22px;
   opacity: 1;
 }
@@ -223,14 +222,14 @@ button:focus {
 /* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
   .header-desc {
-    transform: translateY(0.7em);
-    display: inline-block !important;
+    display: inline-block;
   }
   .header {
     font-size: 14pt !important;
     font-weight: 600;
     font-family: 'Fira sans';
     text-align: left !important;
+    padding-top: 0;
   }
   .desc {
     margin-bottom: 6px !important;
