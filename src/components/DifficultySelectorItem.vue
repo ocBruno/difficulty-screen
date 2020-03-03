@@ -172,7 +172,6 @@ export default {
   transition-delay: 50ms;
   color: #000000;
   line-height: 1;
-  padding: 10px 0 2px 0;
   font-size: 22px;
   opacity: 1;
 }
@@ -234,7 +233,7 @@ button:focus {
   .header-desc {
     display: inline-block;
     vertical-align: middle;
-    padding-top: 0.7em;
+    padding-top: 0.85em;
   }
   #curtinho .translucid {
     margin-top: 0.52em;
@@ -251,6 +250,9 @@ button:focus {
 }
 /* mobile */
 @media (min-width: 340px) and (max-width: 900px) {
+    .header-desc {
+    padding-top: 0.5em;
+  }
   #hardcore .translucid {
     margin-top: 0.52em;
   }  
@@ -265,7 +267,6 @@ button:focus {
   .header-desc {
     display: inline-block;
     vertical-align: middle;
-    padding-top: 0.7em;
   }
   #curtinho .translucid {
     margin-top: 0.52em;
