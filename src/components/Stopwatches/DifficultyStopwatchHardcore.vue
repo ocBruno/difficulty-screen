@@ -1,5 +1,5 @@
 <template>
-  <div class="d-inline-flex stopwatch-container">
+  <div class="stopwatch-container">
     <div
       :class="{
         'stopwatch stopwatch-screen': true,
@@ -66,9 +66,6 @@ export default {
 <style scoped>
 @media (min-width: 320px) and (max-width: 720px) {
   /* mobile */
-  .stopwatch-container {
-    margin-right: 2em !important;
-  }
 }
 @media (min-width: 721px) and (max-width: 1960px) {
   /* tablet/laptop/desktop */

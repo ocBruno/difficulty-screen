@@ -26,14 +26,14 @@
         },
         {
           header: 'Ideal',
-          desc: '45 minutos a 1 hora de estudo',
+          desc: '<span>45 minutos a</span> <span>1 hora de estudo</span>',
           key: 'ideal',
           modalHeader: 'Ideal!',
           modalDesc: `Perfeito! Esse modo garante o tempo de prática necessária para atingir seus objetivos ao longo prazo. Pode ser que em alguns dias não tenha cartas suficientes para estudar, mas sempre que disponível, procure utilizer esse modo!`
         },
         {
           header: 'Hardcore',
-          desc: 'Mais de uma hora de estudo',
+          desc: '<span>Mais de uma</span> <span>hora de estudo</span>',
           key: 'hardcore',
           modalHeader: 'Hardcore!',
           modalDesc: `Para quem quiser se desafiar. Nesse modo não existe um limite de tempo. 
@@ -57,7 +57,12 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600|Roboto:400,700&display=swap');
-
+/* iphone 5 and other 320px */
+@media (min-width: 320px) and (max-width: 340px) {
+    .desc span:nth-child(2) {
+  display: block;
+}
+}
 /* mobile/tablet/laptop/desktop */
 .difficulty-screen {
   background: #f0f0f0;
@@ -78,14 +83,18 @@ export default {
   opacity: 0.45;
   margin-bottom: 0.7em;
 }
-
 /* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
+   /* descriptions that need a line break on mobile have a span wrapping each desc string */
+   .desc {
+     text-align: left;
+   }
+
   .difficulty-screen {
     padding-top: 30px;
   }
   .stopwatch {
-    margin-top: 100% !important;
+    height: 100%;
   }
   .stopwatch-bounce {
     transform: translateY(-2px);

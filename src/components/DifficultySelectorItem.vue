@@ -1,5 +1,6 @@
 <template>
   <div
+    :id="item.key"
     :class="{
       'col-sm-auto row align-self-center difficulty-selector-item': true,
       ideal: isIdeal,
@@ -7,81 +8,83 @@
       last: isLast
     }"
   >
-    <div @mouseover="onHover" @mouseout="onMouseOut" @click="onItemClick">
-      <button
-        @click.stop="onInfoClick"
-        id="screen-more-info-button"
-        :class="{
-          'col-sm-auto more-info-button': true,
-          'more-info-button-active': !isSelected
-        }"
-      >
-        i
-      </button>
+    <div
+      @mouseover="onHover"
+      @mouseout="onMouseOut"
+      @click="onItemClick"
+      :class="{
+        translucid: !isHovering,
+        opaque: isSelected
+      }"
+    >
+      <div id="screen-more-info-button">
+        <button
+          @click.stop="onInfoClick"
+          :class="{
+            'col-sm-auto more-info-button': true,
+            'more-info-button-active': !isSelected
+          }"
+        >
+          i
+        </button>
+      </div>
+      <DifficultyStopwatchCurtinho
+        v-if="item.key === 'curtinho'"
+        :isHovering="isHovering"
+      />
+      <DifficultyStopwatchQuaseLa
+        v-if="item.key === 'quase-la'"
+        :isHovering="isHovering"
+      />
+      <DifficultyStopwatchIdeal
+        v-if="item.key === 'ideal'"
+        :isHovering="isHovering"
+      />
+      <DifficultyStopwatchHardcore
+        v-if="item.key === 'hardcore'"
+        :isHovering="isHovering"
+      />
+      <span class="header-desc">
+      <div :class="{ header: true, 'col-sm-12 header-hovering': isHovering }">
+        {{ item.header }}
+      </div>
       <div
+        :class="{ desc: true, 'desc-hovering': isHovering }"
+        v-html="item.desc"
+      ></div>
+      </span>
+      <button
         :class="{
-          translucid: !isHovering,
+          'select-button mx-auto': true,
+          'select-button-hovering': isHovering,
           opaque: isSelected
         }"
       >
-        <DifficultyStopwatchCurtinho
-          v-if="item.key === 'curtinho'"
-          :isHovering="isHovering"
-        />
-        <DifficultyStopwatchQuaseLa
-          v-if="item.key === 'quase-la'"
-          :isHovering="isHovering"
-        />
-        <DifficultyStopwatchIdeal
-          v-if="item.key === 'ideal'"
-          :isHovering="isHovering"
-        />
-        <DifficultyStopwatchHardcore
-          v-if="item.key === 'hardcore'"
-          :isHovering="isHovering"
-        />
-        <span class="header-desc row">
-          <div
-            :class="{ header: true, 'col-sm-12 header-hovering': isHovering }"
-          >
-            {{ item.header }}
-          </div>
-          <div :class="{ desc: true, 'desc-hovering': isHovering }">
-            {{ item.desc }}
-          </div>
-        </span>
-        <button
-          :class="{
-            'select-button mx-auto': true,
-            'select-button-hovering': isHovering,
-            opaque: isSelected
-          }"
-        >
-          SELECIONAR
-        </button>
-      </div>
+        SELECIONAR
+      </button>
     </div>
-    <button
-      @click.stop="onInfoClick"
-      id="mobile-more-info-button"
-      :class="{
-        'more-info-button': true,
-        'more-info-button-hover opaque': !isSelected
-      }"
-    >
-      <span> i </span>
-    </button>
+    <div id="mobile-more-info-button">
+      <button
+        @click.stop="onInfoClick"
+        :class="{
+          'more-info-button': true,
+          'more-info-button-hover opaque': !isSelected
+        }"
+      >
+        <span> i </span>
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
-import DifficultyStopwatchCurtinho from './Stopwatches/DifficultyStopwatchCurtinho'
-import DifficultyStopwatchHardcore from './Stopwatches/DifficultyStopwatchHardcore'
-import DifficultyStopwatchIdeal from './Stopwatches/DifficultyStopwatchIdeal'
-import DifficultyStopwatchQuaseLa from './Stopwatches/DifficultyStopwatchQuaseLa'
+import DifficultyStopwatchCurtinho from "./Stopwatches/DifficultyStopwatchCurtinho"
+import DifficultyStopwatchHardcore from "./Stopwatches/DifficultyStopwatchHardcore"
+import DifficultyStopwatchIdeal from "./Stopwatches/DifficultyStopwatchIdeal"
+import DifficultyStopwatchQuaseLa from "./Stopwatches/DifficultyStopwatchQuaseLa"
 
 export default {
-  name: 'DifficultySelectorItem',
+  name: "DifficultySelectorItem",
   components: {
     DifficultyStopwatchIdeal,
     DifficultyStopwatchHardcore,
@@ -101,25 +104,25 @@ export default {
     }
   },
   methods: {
-    onHover () {
+    onHover() {
       this.isHovering = true
-      this.$emit('setActiveModalItem', this.item)
+      this.$emit("setActiveModalItem", this.item)
     },
-    onMouseOut () {
+    onMouseOut() {
       this.isHovering = false
     },
-    onItemClick () {
-      this.$emit('updateSelectedItem', this.item.key)
-      this.$emit('openInfoModal', this.item)
+    onItemClick() {
+      this.$emit("updateSelectedItem", this.item.key)
+      this.$emit("openInfoModal", this.item)
     },
-    onInfoClick () {
-      this.$emit('openInfoModal', this.item)
+    onInfoClick() {
+      this.$emit("openInfoModal", this.item)
     }
   },
-  mounted () {},
+  mounted() {},
   computed: {
-    isIdeal () {
-      return this.item.key === 'ideal'
+    isIdeal() {
+      return this.item.key === "ideal"
     }
   }
 }
@@ -132,6 +135,7 @@ export default {
 }
 .translucid {
   opacity: 0.5;
+  height: 100%;
 }
 .header-desc {
   display: block;
@@ -144,7 +148,7 @@ export default {
   user-select: none;
 }
 .desc {
-  font-family: 'Fira Sans';
+  font-family: "Fira Sans";
   font-weight: 300;
   font-size: 12px;
   color: #aaaaaa;
@@ -161,7 +165,7 @@ export default {
 }
 .header {
   text-align: center;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 700;
   letter-spacing: 0;
   transition: transform 0.16s linear;
@@ -177,7 +181,7 @@ export default {
   margin-left: 1px;
   border: 2px solid #aaaaaa26;
   font-size: 11pt;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   border-radius: 24px;
   color: #1cb9ff;
   background: #fff;
@@ -188,6 +192,9 @@ export default {
 }
 #mobile-more-info-button {
   transform: scale(1.1);
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .more-info-button:hover {
   border: 1px solid #76d4ff;
@@ -195,11 +202,12 @@ export default {
 .more-info-button-active {
   border: 1px solid #76d4ff;
 }
+
 .select-button {
   transition: transform 0.16s linear;
   width: 13em;
   height: 3.6em;
-  font-family: 'Fira Sans', regular;
+  font-family: "Fira Sans", regular;
   font-size: 10px;
   letter-spacing: 0.2px;
   color: #1cb9ff;
@@ -215,19 +223,65 @@ export default {
   color: #fff;
   background-color: #4ebaff;
 }
+.stopwatch-container {
+  display: inline-block;
+}
 button:focus {
   outline: none;
 }
+/* iphone 5 and other 320px */
+@media (min-width: 320px) and (max-width: 340px) {
+  .header-desc {
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 0.7em;
+  }
+  #curtinho .translucid {
+    margin-top: 0.52em;
+  }  
 
+  #quase-la .translucid {
+    margin-top: 0.52em;
+  }
+
+  .stopwatch-container {
+    margin-right: 0.8em !important;
+  }
+
+}
+/* mobile */
+@media (min-width: 340px) and (max-width: 900px) {
+  #hardcore .translucid {
+    margin-top: 0.52em;
+  }  
+
+  #ideal .translucid {
+    margin-top: 0.52em;
+  }
+
+}
 /* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
   .header-desc {
     display: inline-block;
+    vertical-align: middle;
+    padding-top: 0.7em;
+  }
+  #curtinho .translucid {
+    margin-top: 0.52em;
+  }  
+
+  #quase-la .translucid {
+    margin-top: 0.52em;
+  }
+  
+  .stopwatch-container {
+    margin-right: 0.8em !important;
   }
   .header {
     font-size: 14pt !important;
     font-weight: 600;
-    font-family: 'Fira sans';
+    font-family: "Fira sans";
     text-align: left !important;
     padding-top: 0;
   }
@@ -235,7 +289,7 @@ button:focus {
     margin-bottom: 6px !important;
     font-size: 11pt !important;
     font-weight: 300;
-    font-family: 'Fira sans';
+    font-family: "Fira sans";
   }
   .ideal {
     border: #ffbb00 2pt solid;
