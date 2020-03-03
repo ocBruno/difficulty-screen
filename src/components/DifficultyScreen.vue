@@ -59,7 +59,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600|Roboto:400,700&display=swap');
 /* iphone 5 and other 320px */
 @media (min-width: 320px) and (max-width: 340px) {
-    .desc span:nth-child(2) {
+.desc span:nth-child(2) {
   display: block;
 }
 }
@@ -70,6 +70,9 @@ export default {
 .stopwatch {
   transition: transform 0.16s linear;
   opacity: 0.7;
+}
+.stopwatch-screen {
+  margin-bottom: 0.52em;
 }
 .screen-header {
   font-family: 'Roboto';
@@ -95,10 +98,6 @@ export default {
   }
   .stopwatch {
     height: 100%;
-  }
-  .stopwatch-bounce {
-    transform: translateY(-2px);
-    opacity: 1;
   }
   .screen-header {
     text-align: left;

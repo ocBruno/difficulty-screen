@@ -88,7 +88,6 @@ export default {
 .modal-body {
   padding-top: 0.2rem;
   font-family: 'Roboto';
-  font-size: 12px;
   padding-bottom: 2rem;
 }
 .close {
@@ -121,10 +120,18 @@ export default {
 
 /* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
-  .modal-bg {
-    top: 36%;
-    left: 0 !important;
+    .close {
+    margin-top: -6rem !important;
   }
+  .modal-bg {
+    position: relative;
+    top: 48%;
+    left: 0 !important;
+    width: 80%;
+  }
+.modal-body {
+  font-size: 16px;
+}
 }
 
 /* tablet/laptop/desktop */
@@ -136,6 +143,9 @@ export default {
     margin-top: 200px;
     width: 324px;
   }
+    .modal-body {
+  font-size: 13px;
+}
   .modal-bg {
     top: 22%;
   }

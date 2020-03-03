@@ -45,7 +45,7 @@
         :isHovering="isHovering"
       />
       <span class="header-desc">
-      <div :class="{ header: true, 'col-sm-12 header-hovering': isHovering }">
+      <div :class="{ header: true, 'header-hovering': isHovering }">
         {{ item.header }}
       </div>
       <div
@@ -135,7 +135,6 @@ export default {
 }
 .translucid {
   opacity: 0.5;
-  height: 100%;
 }
 .header-desc {
   display: block;
@@ -159,10 +158,7 @@ export default {
   margin-bottom: 13px;
   margin-top: 3px;
 }
-.desc-hovering,
-.header-hovering {
-  transform: translateY(-1px);
-}
+
 .header {
   text-align: center;
   font-family: "Roboto";
@@ -217,14 +213,14 @@ export default {
   transition-delay: 50ms;
   line-height: 3.2em;
 }
-.select-button-hovering {
-  transform: scale(1.01);
-  color: #fff;
-  background-color: #4ebaff;
-}
+
 .stopwatch-container {
   display: inline-block;
 }
+
+#curtinho > div:first-child, #quase-la > div:first-child, #ideal > div:first-child, #hardcore > div:first-child {
+  margin-top: 0.52em;
+}  
 button:focus {
   outline: none;
 }
@@ -234,13 +230,6 @@ button:focus {
     display: inline-block;
     vertical-align: middle;
     padding-top: 0.85em;
-  }
-  #curtinho .translucid {
-    margin-top: 0.52em;
-  }  
-
-  #quase-la .translucid {
-    margin-top: 0.52em;
   }
 
   .stopwatch-container {
@@ -253,29 +242,14 @@ button:focus {
     .header-desc {
     padding-top: 0.5em;
   }
-  #hardcore .translucid {
-    margin-top: 0.52em;
-  }  
-
-  #ideal .translucid {
-    margin-top: 0.52em;
-  }
-
 }
 /* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
+  
   .header-desc {
     display: inline-block;
     vertical-align: middle;
-  }
-  #curtinho .translucid {
-    margin-top: 0.52em;
   }  
-
-  #quase-la .translucid {
-    margin-top: 0.52em;
-  }
-  
   .stopwatch-container {
     margin-right: 0.8em !important;
   }
@@ -329,6 +303,14 @@ button:focus {
 
 /* tablet/laptop/desktop */
 @media (min-width: 721px) and (max-width: 1960px) {
+.desc-hovering, .header-hovering {
+  transform: translateY(-1px);
+}
+.select-button-hovering {
+  transform: scale(1.01);
+  color: #fff;
+  background-color: #4ebaff;
+}
   .first {
     margin-left: 0 !important;
   }
