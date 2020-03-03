@@ -7,7 +7,7 @@
         :isFirst="item === items[0]"
         :isLast="item === items[items.length - 1]"
         v-on:updateSelectedItem="updateSelectedItem"
-        v-on:updateActiveModalItem="updateActiveModalItem"
+        v-on:openInfoModal="openInfoModal"
         v-on:setActiveModalItem="setActiveModalItem"
         :isSelected="selectedItemKey === item.key"
         v-bind:key="item.key + '-item'"
@@ -41,7 +41,7 @@ export default {
     }
   },
   methods: {
-    updateActiveModalItem () {
+    openInfoModal () {
       this.isModalVisible = true
       this.showModal(this.activeModalItem.key)
     },
@@ -61,8 +61,8 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+/* mobile/tablet/laptop/desktop */
 .difficulty-selector {
   user-select: none !important;
   border-radius: 10px;
@@ -70,26 +70,26 @@ export default {
   display: inline-flex;
 }
 
-@media only screen and (min-width: 721px) and (max-width: 1960px) {
-  /* Styles for laptop, desktops and other wide screens */
-  .container {
-    max-width: 1000px !important;
-  }
-  .difficulty-selector {
-    padding: 0.8em 1em;
-    margin-top: 1em;
-    box-shadow: 0px 3px 10px #4343431a;
-    background: #ffffff;
-  }
-}
+/* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
-  /* Styles for mobile */
   .container {
     max-width: 900px;
   }
 
   .difficulty-selector {
     padding: 0 1.8rem !important;
+  }
+}
+
+/* tablet/laptop/desktop */
+@media (min-width: 721px) and (max-width: 1960px) {
+  .container {
+    max-width: 1000px !important;
+  }
+  .difficulty-selector {
+    padding: 0.8em 1em;
+    box-shadow: 0px 3px 10px #4343431a;
+    background: #ffffff;
   }
 }
 </style>

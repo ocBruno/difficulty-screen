@@ -67,29 +67,16 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+/* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
-  /* mobile */
   .stopwatch-container {
     margin-right: 2em !important;
   }
-
-  .a {
-    fill: #00aee0;
-  }
-  .b {
-    clip-path: url(#a);
-  }
-  .c {
-    fill: #fff;
-  }
-  .d {
-    fill: #0027c5;
-  }
 }
+
+/* tablet/laptop/desktop */
 @media (min-width: 721px) and (max-width: 1960px) {
-  /* laptop desktop screens */
   .a {
     fill: #f6d476;
   }
@@ -106,6 +93,4 @@ export default {
     fill: #ffda72;
   }
 }
-
-
 </style>

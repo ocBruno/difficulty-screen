@@ -70,16 +70,16 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600|Roboto:400,700&display=swap');
+
+/* mobile/tablet/laptop/desktop */
+.difficulty-screen {
+  background: #f0f0f0;
+}
 .stopwatch {
   transition: transform 0.16s linear;
   opacity: 0.7;
-}
-
-.difficulty-screen {
-  background: #f0f0f0;
 }
 .screen-header {
   font-family: 'Roboto';
@@ -93,28 +93,19 @@ export default {
   opacity: 0.45;
   margin-bottom: 0.7em;
 }
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
+/* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
+  .difficulty-screen {
+    padding-top: 30px;
+  }
   .stopwatch {
     margin-top: 100% !important;
   }
   .stopwatch-bounce {
-  transform: translateY(-2px);
-  opacity: 1;
-}
+    transform: translateY(-2px);
+    opacity: 1;
+  }
   .screen-header {
     text-align: left;
     margin-left: 2rem;
@@ -139,15 +130,19 @@ a {
     margin-top: 1em;
     text-align: left;
     font-size: 14px;
-
     margin-left: 2rem;
   }
 }
+
+/* tablet/laptop/desktop */
 @media (min-width: 721px) and (max-width: 1960px) {
+  .difficulty-screen {
+    padding-top: 60px;
+  }
   .stopwatch-bounce {
-  transform: translateY(-6px);
-  opacity: 1;
-}
+    transform: translateY(-6px);
+    opacity: 1;
+  }
   .stopwatch-mobile > svg {
     display: none !important;
     visibility: hidden !important;
@@ -166,5 +161,4 @@ a {
     font-size: 12px;
   }
 }
-
 </style>

@@ -21,7 +21,6 @@
       <div
         :class="{
           translucid: !isHovering,
-
           opaque: isSelected
         }"
       >
@@ -80,6 +79,7 @@ import DifficultyStopwatchCurtinho from './Stopwatches/DifficultyStopwatchCurtin
 import DifficultyStopwatchHardcore from './Stopwatches/DifficultyStopwatchHardcore'
 import DifficultyStopwatchIdeal from './Stopwatches/DifficultyStopwatchIdeal'
 import DifficultyStopwatchQuaseLa from './Stopwatches/DifficultyStopwatchQuaseLa'
+
 export default {
   name: 'DifficultySelectorItem',
   components: {
@@ -110,10 +110,10 @@ export default {
     },
     onItemClick () {
       this.$emit('updateSelectedItem', this.item.key)
-      this.$emit('updateActiveModalItem', this.item)
+      this.$emit('openInfoModal', this.item)
     },
     onInfoClick () {
-      this.$emit('updateActiveModalItem', this.item)
+      this.$emit('openInfoModal', this.item)
     }
   },
   mounted () {},
@@ -125,91 +125,17 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@media (min-width: 320px) and (max-width: 720px) {
-  /* mobile */
-  .header-desc {
-    transform: translateY(0.7em);
-  }
-  .more-info-button {
-    display: inline-block;
-    margin-top: auto !important;
-    margin-bottom: auto !important;
-    margin-left: auto !important;
-    padding-bottom: 1px;
-    font-weight: 700;
-  }
-  #screen-more-info-button {
-    display: none !important;
-  }
-  .ideal {
-    border: #ffbb00 2pt solid;
-  }
-  .difficulty-selector-item {
-    min-width: 6rem;
-    background: #fff;
-    border-radius: 20px;
-    height: 4.8rem;
-    margin: 0.48em 0em !important;
-  }
-  .select-button {
-    display: none !important;
-    visibility: hidden !important;
-  }
-  .header {
-    font-size: 14pt !important;
-    font-weight: 600;
-    font-family: 'Fira sans';
-    text-align: left !important;
-  }
-  .header-desc {
-    display: inline-block !important;
-  }
-
-  .desc {
-    margin-bottom: 6px !important;
-    font-size: 12pt !important;
-    font-weight: 300;
-    font-family: 'Fira sans';
-  }
-  .modal-dialog {
-    position: fixed;
-    top: auto;
-    right: auto;
-    left: auto;
-    bottom: 0 !important;
-  }
-}
-@media (min-width: 721px) and (max-width: 1960px) {
-  /* laptop desktop screens */
-  .first {
-    margin-left: 0 !important;
-  }
-  .last {
-    margin-right: 0 !important;
-  }
-  .more-info-button {
-    display: inline-block !important;
-    width: 20px !important;
-    margin-bottom: 1.2em;
-    font-weight: 400;
-  }
-  #mobile-more-info-button {
-    display: none !important;
-  }
-}
+/* mobile/tablet/laptop/desktop */
 .opaque {
   opacity: 1 !important;
 }
 .translucid {
   opacity: 0.5;
 }
-
 .header-desc {
   display: block;
   transform: translateY(-2%);
-
 }
 .difficulty-selector-item {
   margin: 0.68em 1.6em;
@@ -218,7 +144,6 @@ export default {
   cursor: pointer;
   user-select: none;
 }
-
 .desc {
   font-family: 'Fira Sans';
   font-weight: 300;
@@ -291,8 +216,79 @@ export default {
   color: #fff;
   background-color: #4ebaff;
 }
-
 button:focus {
   outline: none;
+}
+
+/* mobile */
+@media (min-width: 320px) and (max-width: 720px) {
+  .header-desc {
+    transform: translateY(0.7em);
+    display: inline-block !important;
+  }
+  .header {
+    font-size: 14pt !important;
+    font-weight: 600;
+    font-family: 'Fira sans';
+    text-align: left !important;
+  }
+  .desc {
+    margin-bottom: 6px !important;
+    font-size: 11pt !important;
+    font-weight: 300;
+    font-family: 'Fira sans';
+  }
+  .ideal {
+    border: #ffbb00 2pt solid;
+  }
+  .difficulty-selector-item {
+    min-width: 6rem;
+    background: #fff;
+    border-radius: 20px;
+    height: 4.8rem;
+    margin: 0.48em 0em !important;
+  }
+  .select-button {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  .more-info-button {
+    display: inline-block;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    margin-left: auto !important;
+    padding-bottom: 1px;
+    font-weight: 700;
+  }
+  #screen-more-info-button {
+    display: none !important;
+  }
+
+  .modal-dialog {
+    position: fixed;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: 0 !important;
+  }
+}
+
+/* tablet/laptop/desktop */
+@media (min-width: 721px) and (max-width: 1960px) {
+  .first {
+    margin-left: 0 !important;
+  }
+  .last {
+    margin-right: 0 !important;
+  }
+  .more-info-button {
+    display: inline-block !important;
+    width: 20px !important;
+    margin-bottom: 1.2em;
+    font-weight: 400;
+  }
+  #mobile-more-info-button {
+    display: none !important;
+  }
 }
 </style>

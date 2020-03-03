@@ -14,7 +14,6 @@
         src="../assets/pale-waiting.png"
         :class="{ 'modal-bg': true, 'modal-bg-closed': !this.isModalVisible }"
       />
-
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -67,29 +66,8 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@media only screen and (min-width: 721px) {
-  /* laptop and most screens */
-  .close {
-    margin: -1.6rem -4.7rem -1rem auto !important;
-  }
-  .modal-dialog {
-    margin-top: 200px;
-    width: 324px;
-  }
-  .modal-bg {
-    top: 22%;
-  }
-}
-
-@media (min-width: 320px) and (max-width: 720px) {
-  /* Styles for mobile */
-  .modal-bg {
-    top: 36%;
-    left: 0 !important;
-  }
-}
+/* mobile/tablet/laptop/desktop */
 .modal {
   user-select: none;
 }
@@ -125,7 +103,6 @@ export default {
   border-radius: 20px;
   opacity: 1;
 }
-
 .close-hover {
   color: #fff !important;
   background: #1cb9ff;
@@ -140,5 +117,27 @@ export default {
 .modal-content {
   border-radius: 20px;
   padding: 10px;
+}
+
+/* mobile */
+@media (min-width: 320px) and (max-width: 720px) {
+  .modal-bg {
+    top: 36%;
+    left: 0 !important;
+  }
+}
+
+/* tablet/laptop/desktop */
+@media (min-width: 721px) and (max-width: 1960px) {
+  .close {
+    margin: -1.6rem -4.7rem -1rem auto !important;
+  }
+  .modal-dialog {
+    margin-top: 200px;
+    width: 324px;
+  }
+  .modal-bg {
+    top: 22%;
+  }
 }
 </style>

@@ -23,7 +23,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   background-color: #F0F0F0;
-  padding-top: 60px;
   height: 100vh;
 }
 body {
@@ -36,10 +35,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 </style>
