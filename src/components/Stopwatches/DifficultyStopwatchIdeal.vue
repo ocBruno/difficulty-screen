@@ -60,7 +60,7 @@ export default {
   props: {
     isHovering: Boolean
   },
-  data: () => {}
+  data: () => {return {}}
 }
 </script>
 

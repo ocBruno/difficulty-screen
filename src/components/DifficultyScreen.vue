@@ -51,7 +51,7 @@ import DifficultySelector from './DifficultySelector'
 export default {
   name: 'DifficultyScreen',
   components: { DifficultySelector },
-  data: () => {},
+  data: () => {return {}},
 }
 </script>
 
