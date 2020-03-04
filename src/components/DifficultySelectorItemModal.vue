@@ -3,8 +3,8 @@
     <!-- Modal -->
     <div
       class="modal fade"
-      :id="activeModalKey + '-modal'"
-      :ref="activeModalKey + '-modal'"
+      id="difficulty-modal"
+      ref="difficulty-modal"
       tabindex="-1"
       role="dialog"
       aria-labelledby="difficulty-modal"
@@ -12,7 +12,7 @@
     >
       <img
         src="../assets/png/pale-waiting.png"
-        :class="{ 'modal-bg': true, 'modal-bg-closed': !isModalVisible }"
+        class="modal-bg"
       />
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import $ from "jquery"
+import $ from 'jquery'
 
 export default {
-  name: "DifficultySelectorItemModal",
+  name: 'DifficultySelectorItemModal',
   props: {
     item: Object,
     activeModalKey: String,
@@ -54,16 +54,11 @@ export default {
       isHovering: false
     }
   },
-  mounted() {
+  mounted () {
     // capture bootstrap modal close event
-    $(this.$refs[this.activeModalKey + "-modal"]).on("hidden.bs.modal", () =>
-      this.$emit("closeModal")
-    )
+
   },
   methods: {
-    closeModal() {
-      $(`#${this.activeModalKey}-modal`).modal("close")
-    }
   }
 }
 </script>
@@ -72,7 +67,6 @@ export default {
 /* mobile/tablet/laptop/desktop */
 .modal {
   user-select: none;
-  
 }
 .modal-bg {
   position: absolute;
@@ -80,9 +74,6 @@ export default {
   opacity: 1;
   transition: opacity 150ms ease-in-out;
   pointer-events: none;
-}
-.modal-bg-closed {
-  opacity: 0;
 }
 .modal-content {
   padding-left: 0.8em !important;
@@ -93,7 +84,7 @@ export default {
   padding-top: 0.8rem;
 }
 .modal-body {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   padding-bottom: 1.2rem;
   padding-top: 0.48rem;
 }
@@ -107,7 +98,7 @@ export default {
   border-radius: 20px;
   color: #1cb9ff;
   background: #fff;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: 1.48em;
   transition: color 0.12s linear;
 
@@ -116,22 +107,18 @@ export default {
 .close > span {
   display: flex;
   margin: auto auto 0.12em auto;
-
 }
 .close-hover {
-
   color: #fff !important;
   background: #1cb9ff;
   font-weight: 100 !important;
-
 }
 .close-hover > span {
   margin: auto auto 0.28em auto;
-
 }
 .modal-title {
   text-align: left;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-weight: 700;
   font-size: 1.44em;
   color: #000000;

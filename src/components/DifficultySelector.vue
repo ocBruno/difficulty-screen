@@ -15,8 +15,7 @@
     </div>
     <DifficultySelectorItemModal
       :item="activeModalItem"
-      v-on:closeModal="closeModal"
-      v-bind:key="activeModalItem.key + '-modal'"
+      v-bind:key="activeModalItem.key"
       isModalVisible
     />
   </div>
@@ -36,21 +35,25 @@ export default {
   data: items => {
     return {
       isModalVisible: false,
-      activeModalItem: {header: undefined, desc: undefined, modal: {header: undefined, desc: undefined}},
+      activeModalItem: {
+        header: undefined,
+        desc: undefined,
+        modal: { header: undefined, desc: undefined }
+      },
       selectedItemKey: 'ideal'
     }
   },
   methods: {
-    setActiveModalItem(item) {
-      if(item.isDisabled && !item.isInfoButtonHovering) {
+    setActiveModalItem (item) {
+      if (item.isDisabled && !item.isInfoButtonHovering) {
         this.activeModalItem = {
-            header: undefined,
-            desc: undefined,
-            modal: {
-              header: "Não disponível",
-              desc: `Alguns modos podem estar desabilitados por você porque não tem cartas suficientes para estudar.
+          header: undefined,
+          desc: undefined,
+          modal: {
+            header: 'Não disponível',
+            desc: `Alguns modos podem estar desabilitados por você porque não tem cartas suficientes para estudar.
         <div class="desc-break">O importante é sempre que disponível, estudar pelo modo <b> ideal </b> ok?`
-            }
+          }
         }
       } else {
         this.activeModalItem = item
@@ -58,14 +61,10 @@ export default {
     },
     onInfoClick (item) {
       this.isModalVisible = true
-      $(`#${this.activeModalKey }-modal`).modal('show')
-      
+      $(`#difficulty-modal`).modal('show')
     },
     updateSelectedItem (key) {
       this.selectedItemKey = key
-    },
-    closeModal () {
-      this.isModalVisible = false
     },
   }
 }
@@ -100,6 +99,5 @@ export default {
     box-shadow: 0px 3px 10px #4343431a;
     background: #ffffff;
   }
-
 }
 </style>
