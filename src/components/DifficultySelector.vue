@@ -43,7 +43,15 @@ export default {
   methods: {
     setActiveModalItem(item) {
       if(item.isDisabled && !item.isInfoButtonHovering) {
-
+        this.activeModalItem = {
+            header: undefined,
+            desc: undefined,
+            modal: {
+              header: "Não disponível",
+              desc: `Alguns modos podem estar desabilitados por você porque não tem cartas suficientes para estudar.
+        <br/><br/> O importante é sempre que disponível, estudar pelo modo ideal ok?`
+            }
+        }
       } else {
         this.activeModalItem = item
       }

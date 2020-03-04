@@ -158,7 +158,7 @@ export default {
 <style scoped>
 /* mobile/tablet/laptop/desktop */
 .opaque {
-  opacity: 1;
+  opacity: 1 !important;
 }
 .disabled {
   opacity: 0.5;
@@ -197,6 +197,7 @@ export default {
   color: #000000;
   line-height: 1;
   font-size: 22px;
+  opacity: 1;
 }
 .more-info-button {
   padding: 0px;
@@ -207,6 +208,7 @@ export default {
   border-radius: 24px;
   color: #1cb9ff;
   background: #fff;
+  opacity: 1;
   width: 22px;
   height: 22px;
   transition: border 100ms linear;
