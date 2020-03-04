@@ -27,7 +27,8 @@
       @click="onItemClick"
       :class="{
         disabled: item.isDisabled,
-        opaque: !item.isDisabled
+        opaque: !item.isDisabled,
+        'my-auto': true
       }"
     >
       <DifficultyStopwatchCurtinho
@@ -168,7 +169,7 @@ export default {
   display: block;
 }
 .difficulty-selector-item {
-  margin: 0.28rem 1.6rem 0.58rem 1.6rem;
+  margin: 0.28rem 1.5rem 0.58rem 1.5rem;
 }
 .difficulty-selector-item:hover {
   cursor: pointer;
@@ -177,8 +178,8 @@ export default {
 .desc {
   font-family: "Fira Sans";
   font-weight: 300;
-  font-size: 12px;
-  color: #aaaaaa;
+  font-size: 0.8em;
+  color: #8c8c8c;
   margin-bottom: 10px;
   transition: transform 0.16s linear;
   transition-delay: 50ms;
@@ -260,7 +261,7 @@ button:focus {
   .header-desc {
     display: inline-block;
     vertical-align: middle;
-    padding-top: 0.85em;
+    padding-top: 0.55em;
   }
 
   .stopwatch-container {

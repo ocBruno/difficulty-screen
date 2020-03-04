@@ -90,7 +90,7 @@ export default {
 .modal-body {
   padding-top: 0.2rem;
   font-family: "Roboto";
-  padding-bottom: 1.6rem;
+  padding-bottom: 1.2rem;
 }
 .close {
   padding: 0.2rem 0.2rem !important;
@@ -149,7 +149,7 @@ export default {
     width: 324px;
   }
   .modal-body {
-    font-size: 13px;
+    font-size: 0.8em;
   }
   .modal-bg {
     top: 22%;
