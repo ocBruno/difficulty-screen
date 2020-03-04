@@ -11,7 +11,7 @@
       aria-hidden="true"
     >
       <img
-        src="../assets/pale-waiting.png"
+        src="../assets/png/pale-waiting.png"
         :class="{ 'modal-bg': true, 'modal-bg-closed': !isModalVisible }"
       />
       <div class="modal-dialog" role="document">

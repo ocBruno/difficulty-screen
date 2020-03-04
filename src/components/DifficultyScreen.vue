@@ -52,11 +52,11 @@ export default {
           isDisabled: false
         },
         {
-          header: "Hardcore!",
+          header: "Hardcore",
           desc: "<span>Mais de uma</span> <span>hora de estudo</span>",
           key: "hardcore",
           modal: {
-            header: "Hardcore",
+            header: "Hardcore!",
             desc: `Para quem quiser se desafiar. Nesse modo não existe um limite de tempo. 
             <br/> <br/>
             Iremos mostrar cartas até o deck acabar. Uma verdadeira maratona de estudos!`

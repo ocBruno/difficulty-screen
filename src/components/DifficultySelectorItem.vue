@@ -17,7 +17,7 @@
         @mouseout="onInfoButtonMouseOut"
         :class="{
           'col-sm-auto more-info-button': true,
-          'more-info-button-active': item.isDisabled
+          'more-info-button-disabled': item.isDisabled
         }"
       >
         i
@@ -221,10 +221,10 @@ export default {
   margin-bottom: auto;
 }
 .more-info-button:hover {
-  border: 1px solid #76d4ff;
+  border: 2px solid #76d4ff;
 }
-.more-info-button-active {
-  border: 1px solid #76d4ff;
+.more-info-button-disabled {
+  border: 2px solid #76d4ff;
 }
 
 .select-button {
