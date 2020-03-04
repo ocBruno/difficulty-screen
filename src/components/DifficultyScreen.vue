@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600|Roboto:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600|Roboto:100,300,400,700&display=swap");
 /* iphone 5 and other 320px */
 @media (min-width: 320px) and (max-width: 340px) {
   .desc span:nth-child(2) {

@@ -98,20 +98,36 @@ export default {
   padding-top: 0.48rem;
 }
 .close {
-  padding: 0.2rem 0.2rem !important;
+  display: flex;
+  opacity: 1;
+  padding: 0 !important;
   width: 40px;
   height: 40px;
   outline: 0;
+  border-radius: 20px;
   color: #1cb9ff;
   background: #fff;
-  font-size: 23px;
-  font-weight: 200 !important;
-  border-radius: 20px;
-  opacity: 1;
+  font-family: "Roboto";
+  font-size: 1.48em;
+  transition: color 0.12s linear;
+
+  font-weight: 300 !important;
+}
+.close > span {
+  display: flex;
+  margin: auto auto 0.12em auto;
+
 }
 .close-hover {
+
   color: #fff !important;
   background: #1cb9ff;
+  font-weight: 100 !important;
+
+}
+.close-hover > span {
+  margin: auto auto 0.28em auto;
+
 }
 .modal-title {
   text-align: left;
