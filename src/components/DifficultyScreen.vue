@@ -83,7 +83,6 @@ export default {
 }
 .stopwatch {
   transition: transform 0.16s linear;
-  opacity: 0.7;
 }
 .stopwatch-screen {
   margin-bottom: 0.52em;
@@ -127,11 +126,7 @@ export default {
     bottom: 0;
     position: absolute !important;
   }
-  .stopwatch-screen > svg {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-  }
+
   .stopwatch-screen > img {
     display: none !important;
     visibility: hidden !important;
@@ -154,11 +149,7 @@ export default {
     transform: translateY(-6px);
     opacity: 1;
   }
-  .stopwatch-mobile > svg {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-  }
+
   .stopwatch-mobile > img {
     display: none !important;
     visibility: hidden !important;

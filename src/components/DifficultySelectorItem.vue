@@ -32,33 +32,33 @@
     >
       <DifficultyStopwatchCurtinho
         v-if="item.key === 'curtinho'"
-        :isHovering="isHovering"
+        :isHovering="isHovering && !item.isDisabled"
       />
       <DifficultyStopwatchQuaseLa
         v-if="item.key === 'quase-la'"
-        :isHovering="isHovering"
+        :isHovering="isHovering && !item.isDisabled"
       />
       <DifficultyStopwatchIdeal
         v-if="item.key === 'ideal'"
-        :isHovering="isHovering"
+        :isHovering="isHovering && !item.isDisabled"
       />
       <DifficultyStopwatchHardcore
         v-if="item.key === 'hardcore'"
-        :isHovering="isHovering"
+        :isHovering="isHovering && !item.isDisabled"
       />
       <span class="header-desc">
-        <div :class="{ header: true, 'header-hovering': isHovering }">
+        <div :class="{ header: true, 'header-hovering': isHovering && !item.isDisabled }">
           {{ item.header }}
         </div>
         <div
-          :class="{ desc: true, 'desc-hovering': isHovering }"
+          :class="{ desc: true, 'desc-hovering': isHovering && !item.isDisabled}"
           v-html="item.desc"
         ></div>
       </span>
       <button
         :class="{
           'select-button mx-auto': true,
-          'select-button-hovering': isHovering,
+          'select-button-hovering': isHovering && !item.isDisabled,
           opaque: !item.isDisabled
         }"
       >
@@ -158,7 +158,7 @@ export default {
 <style scoped>
 /* mobile/tablet/laptop/desktop */
 .opaque {
-  opacity: 1 !important;
+  opacity: 1;
 }
 .disabled {
   opacity: 0.5;
@@ -168,7 +168,7 @@ export default {
   display: block;
 }
 .difficulty-selector-item {
-  margin: 0.68em 1.6em;
+  margin: 0.28rem 1.6rem 0.58rem 1.6rem;
 }
 .difficulty-selector-item:hover {
   cursor: pointer;
@@ -197,7 +197,6 @@ export default {
   color: #000000;
   line-height: 1;
   font-size: 22px;
-  opacity: 1;
 }
 .more-info-button {
   padding: 0px;
@@ -208,7 +207,6 @@ export default {
   border-radius: 24px;
   color: #1cb9ff;
   background: #fff;
-  opacity: 1;
   width: 22px;
   height: 22px;
   transition: border 100ms linear;
@@ -332,6 +330,13 @@ button:focus {
 
 /* tablet/laptop/desktop */
 @media (min-width: 721px) and (max-width: 1960px) {
+
+  #hardcore > div.disabled > button {
+    transition: none !important;
+    transform: none !important;
+      color: #1cb9ff;
+  background: #fff;
+  }
   .difficulty-selector-item {
     display: block !important;
   }

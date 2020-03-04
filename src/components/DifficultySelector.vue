@@ -42,18 +42,8 @@ export default {
   },
   methods: {
     setActiveModalItem(item) {
-      console.log('set active moda item')
-      console.log(item)
       if(item.isDisabled && !item.isInfoButtonHovering) {
-        this.activeModalItem = {
-            header: undefined,
-            desc: undefined,
-            modal: {
-              header: "Não disponível",
-              desc: `Alguns modos podem estar desabilitados por você porque não tem cartas suficientes para estudar.
-        <br/><br/> O importante é sempre que disponível, estudar pelo modo ideal ok?`
-            }
-        }
+
       } else {
         this.activeModalItem = item
       }
@@ -78,7 +68,6 @@ export default {
 .difficulty-selector {
   user-select: none !important;
   border-radius: 10px;
-  opacity: 1;
   display: inline-flex;
 }
 
@@ -103,5 +92,6 @@ export default {
     box-shadow: 0px 3px 10px #4343431a;
     background: #ffffff;
   }
+
 }
 </style>
