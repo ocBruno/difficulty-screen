@@ -72,6 +72,7 @@ export default {
 /* mobile/tablet/laptop/desktop */
 .modal {
   user-select: none;
+  
 }
 .modal-bg {
   position: absolute;
@@ -83,14 +84,18 @@ export default {
 .modal-bg-closed {
   opacity: 0;
 }
+.modal-content {
+  padding-left: 0.8em !important;
+}
 .modal-header {
   border-bottom: 0px;
   padding-bottom: 0.2rem;
+  padding-top: 0.8rem;
 }
 .modal-body {
-  padding-top: 0.2rem;
   font-family: "Roboto";
   padding-bottom: 1.2rem;
+  padding-top: 0.48rem;
 }
 .close {
   padding: 0.2rem 0.2rem !important;
@@ -112,7 +117,7 @@ export default {
   text-align: left;
   font-family: "Roboto";
   font-weight: 700;
-  font-size: 24px;
+  font-size: 1.44em;
   color: #000000;
 }
 .modal-content {
@@ -146,13 +151,14 @@ export default {
   }
   .modal-dialog {
     margin-top: 200px;
-    width: 324px;
+    width: 20.8rem;
   }
   .modal-body {
     font-size: 0.8em;
   }
   .modal-bg {
-    top: 22%;
+    top: 24%;
+    width: 28.8%;
   }
 }
 </style>

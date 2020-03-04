@@ -40,20 +40,6 @@ export default {
 
 /* tablet/laptop/desktop */
 @media (min-width: 721px) and (max-width: 1960px) {
-  .a {
-    fill: #f6d476;
-  }
-  .b {
-    fill: #1cb9ff;
-  }
-  .c {
-    clip-path: url(#a);
-  }
-  .d {
-    fill: #fff;
-  }
-  .e {
-    fill: #ffda72;
-  }
+
 }
 </style>

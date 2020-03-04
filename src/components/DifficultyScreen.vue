@@ -25,7 +25,7 @@ export default {
             header: "Curtinho",
             desc: `Sem problemas, caso tenha poucas cartas ou esteja um pouco sem tempo esse modo de estudo é o ideal.
              <br/> <br/>
-             Importante se lembrar que sempre que tiver o modo <b>ideal</b> disponível, deve estudar por ele ok?`
+             Importante se lembrar que sempre que tiver o modo <b> ideal </b> disponível, deve estudar por ele ok?`
           },
           isDisabled: false
         },
@@ -78,6 +78,9 @@ export default {
   }
 }
 /* mobile/tablet/laptop/desktop */
+.desc-break {
+  margin-top: 0.8em;
+}
 .difficulty-screen {
   background: #f0f0f0;
 }
