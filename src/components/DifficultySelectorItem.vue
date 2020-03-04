@@ -48,11 +48,19 @@
         :isHovering="isHovering && !item.isDisabled"
       />
       <span class="header-desc">
-        <div :class="{ header: true, 'header-hovering': isHovering && !item.isDisabled }">
+        <div
+          :class="{
+            header: true,
+            'header-hovering': isHovering && !item.isDisabled
+          }"
+        >
           {{ item.header }}
         </div>
         <div
-          :class="{ desc: true, 'desc-hovering': isHovering && !item.isDisabled}"
+          :class="{
+            desc: true,
+            'desc-hovering': isHovering && !item.isDisabled
+          }"
           v-html="item.desc"
         ></div>
       </span>
@@ -69,9 +77,11 @@
     <div id="mobile-more-info-button">
       <button
         @click.stop="onInfoClick"
+        @mouseover="onInfoButtonHover"
+        @mouseout="onInfoButtonMouseOut"
         :class="{
           'more-info-button': true,
-          'more-info-button-hover opaque': item.isDisabled
+          'more-info-button-disabled opaque': item.isDisabled
         }"
       >
         <span> i </span>
@@ -81,13 +91,13 @@
 </template>
 
 <script>
-import DifficultyStopwatchCurtinho from "./Stopwatches/DifficultyStopwatchCurtinho"
-import DifficultyStopwatchHardcore from "./Stopwatches/DifficultyStopwatchHardcore"
-import DifficultyStopwatchIdeal from "./Stopwatches/DifficultyStopwatchIdeal"
-import DifficultyStopwatchQuaseLa from "./Stopwatches/DifficultyStopwatchQuaseLa"
+import DifficultyStopwatchCurtinho from './Stopwatches/DifficultyStopwatchCurtinho'
+import DifficultyStopwatchHardcore from './Stopwatches/DifficultyStopwatchHardcore'
+import DifficultyStopwatchIdeal from './Stopwatches/DifficultyStopwatchIdeal'
+import DifficultyStopwatchQuaseLa from './Stopwatches/DifficultyStopwatchQuaseLa'
 
 export default {
-  name: "DifficultySelectorItem",
+  name: 'DifficultySelectorItem',
   components: {
     DifficultyStopwatchIdeal,
     DifficultyStopwatchHardcore,
@@ -106,51 +116,45 @@ export default {
     }
   },
   methods: {
-    onHover() {
+    onHover () {
       this.isHovering = true
-      this.$emit("setActiveModalItem", this.item)
+      this.$emit('setActiveModalItem', this.item)
     },
-    onMouseOut() {
+    onMouseOut () {
       this.isHovering = false
     },
-    onInfoButtonHover() {
+    onInfoButtonHover () {
       this.item.isInfoButtonHovering = true
     },
-    onInfoButtonMouseOut() {
+    onInfoButtonMouseOut () {
       this.item.isInfoButtonHovering = false
     },
-    onItemClick() {
-        console.log(this.isInfoButtonHovering)
-
+    onItemClick () {
       if (this.item.isDisabled && this.isInfoButtonHovering) {
-        console.log('info hovering')
       } else if (this.item.isDisabled && !this.isInfoButtonHovering) {
-
-        this.$emit("onInfoClick", {
+        this.$emit('onInfoClick', {
           item: {
             header: undefined,
             desc: undefined,
             modal: {
-              header: "Não disponível",
+              header: 'Não disponível',
               desc: `Alguns modos podem estar desabilitados por você porque não tem cartas suficientes para estudar.
         <br/><br/> O importante é sempre que disponível, estudar pelo modo ideal ok?`
             }
           }
         })
       } else {
-        this.$emit("updateSelectedItem", this.item.key)
+        this.$emit('updateSelectedItem', this.item.key)
       }
     },
-    onInfoClick() {
-      console.log('test')
-      console.log(this.item)
-      this.$emit("onInfoClick", this.item)
+    onInfoClick () {
+      this.$emit('onInfoClick', this.item)
     }
   },
-  mounted() {},
+  mounted () {},
   computed: {
-    isIdeal() {
-      return this.item.key === "ideal"
+    isIdeal () {
+      return this.item.key === 'ideal'
     }
   }
 }
@@ -176,7 +180,7 @@ export default {
   user-select: none;
 }
 .desc {
-  font-family: "Fira Sans";
+  font-family: 'Fira Sans';
   font-weight: 300;
   font-size: 0.8em;
   color: #8c8c8c;
@@ -190,7 +194,7 @@ export default {
 
 .header {
   text-align: center;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-weight: 700;
   letter-spacing: 0;
   transition: transform 0.16s linear;
@@ -205,7 +209,7 @@ export default {
   margin-left: 1px;
   border: 2px solid #aaaaaa26;
   font-size: 11pt;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   border-radius: 24px;
   color: #1cb9ff;
   background: #fff;
@@ -231,7 +235,7 @@ export default {
   transition: transform 0.16s linear;
   width: 13em;
   height: 3.6em;
-  font-family: "Fira Sans", regular;
+  font-family: 'Fira Sans', regular;
   font-size: 10px;
   letter-spacing: 0.2px;
   color: #1cb9ff;
@@ -286,7 +290,7 @@ button:focus {
   .header {
     font-size: 14pt !important;
     font-weight: 600;
-    font-family: "Fira sans";
+    font-family: 'Fira sans';
     text-align: left !important;
     padding-top: 0;
   }
@@ -294,7 +298,7 @@ button:focus {
     margin-bottom: 6px !important;
     font-size: 11pt !important;
     font-weight: 300;
-    font-family: "Fira sans";
+    font-family: 'Fira sans';
   }
   .ideal {
     border: #ffbb00 2pt solid;
@@ -333,12 +337,11 @@ button:focus {
 
 /* tablet/laptop/desktop */
 @media (min-width: 721px) and (max-width: 1960px) {
-
   #hardcore > div.disabled > button {
     transition: none !important;
     transform: none !important;
-      color: #1cb9ff;
-  background: #fff;
+    color: #1cb9ff;
+    background: #fff;
   }
   .difficulty-selector-item {
     display: block !important;
