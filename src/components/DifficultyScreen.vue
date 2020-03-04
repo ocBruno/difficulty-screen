@@ -4,64 +4,78 @@
     <div class="screen-sub-header">
       Quanto mais longa sua sessão de estudos, mais rápido irá aprender!
     </div>
-    <DifficultySelector
-      :items="[
-        {
-          header: 'Curtinho',
-          desc: '15 a 30 minutos de estudo',
-          key: 'curtinho',
-          modalHeader: 'Curtinho',
-          modalDesc: `Sem problemas, caso tenha poucas cartas ou esteja um pouco sem tempo esse modo de estudo é o ideal.
-             <br/> <br/>
-             Importante se lembrar que sempre que tiver o modo <b>ideal</b> disponível, deve estudar por ele ok?`
-        },
-        {
-          header: 'Quase lá',
-          desc: '30 a 45 minutos de estudo',
-          key: 'quase-la',
-          modalHeader: 'Quase lá...',
-          modalDesc: `Estamos no caminho certo! 
-             <br/> <br/>
-             Caso não tenha cartas para o modo ideal, tudo bem estudar por esse.`
-        },
-        {
-          header: 'Ideal',
-          desc: '<span>45 minutos a</span> <span>1 hora de estudo</span>',
-          key: 'ideal',
-          modalHeader: 'Ideal!',
-          modalDesc: `Perfeito! Esse modo garante o tempo de prática necessária para atingir seus objetivos ao longo prazo. Pode ser que em alguns dias não tenha cartas suficientes para estudar, mas sempre que disponível, procure utilizer esse modo!`
-        },
-        {
-          header: 'Hardcore',
-          desc: '<span>Mais de uma</span> <span>hora de estudo</span>',
-          key: 'hardcore',
-          modalHeader: 'Hardcore!',
-          modalDesc: `Para quem quiser se desafiar. Nesse modo não existe um limite de tempo. 
-            <br/> <br/>
-            Iremos mostrar cartas até o deck acabar. Uma verdadeira maratona de estudos!`
-        }
-      ]"
-    />
+    <DifficultySelector :items="items" />
   </div>
 </template>
 
 <script>
-import DifficultySelector from './DifficultySelector'
+import DifficultySelector from "./DifficultySelector"
 
 export default {
-  name: 'DifficultyScreen',
+  name: "DifficultyScreen",
   components: { DifficultySelector },
-  data: () => {return {}},
+  data: () => {
+    return {
+      items: [
+        {
+          header: "Curtinho",
+          desc: "15 a 30 minutos de estudo",
+          key: "curtinho",
+          modal: {
+            header: "Curtinho",
+            desc: `Sem problemas, caso tenha poucas cartas ou esteja um pouco sem tempo esse modo de estudo é o ideal.
+             <br/> <br/>
+             Importante se lembrar que sempre que tiver o modo <b>ideal</b> disponível, deve estudar por ele ok?`
+          },
+          isDisabled: false
+        },
+        {
+          header: "Quase lá",
+          desc: "30 a 45 minutos de estudo",
+          key: "quase-la",
+          modal: {
+            header: "Quase lá...",
+            desc: `Estamos no caminho certo! 
+             <br/> <br/>
+             Caso não tenha cartas para o modo ideal, tudo bem estudar por esse.`
+          },
+          isDisabled: false
+        },
+        {
+          header: "Ideal",
+          desc: "<span>45 minutos a</span> <span>1 hora de estudo</span>",
+          key: "ideal",
+          modal: {
+            header: "Ideal!",
+            desc: `Perfeito! Esse modo garante o tempo de prática necessária para atingir seus objetivos ao longo prazo. Pode ser que em alguns dias não tenha cartas suficientes para estudar, mas sempre que disponível, procure utilizer esse modo!`
+          },
+          isDisabled: false
+        },
+        {
+          header: "Hardcore!",
+          desc: "<span>Mais de uma</span> <span>hora de estudo</span>",
+          key: "hardcore",
+          modal: {
+            header: "Hardcore",
+            desc: `Para quem quiser se desafiar. Nesse modo não existe um limite de tempo. 
+            <br/> <br/>
+            Iremos mostrar cartas até o deck acabar. Uma verdadeira maratona de estudos!`
+          },
+          isDisabled: true
+        }
+      ]
+    }
+  }
 }
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600|Roboto:400,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600|Roboto:400,700&display=swap");
 /* iphone 5 and other 320px */
 @media (min-width: 320px) and (max-width: 340px) {
-.desc span:nth-child(2) {
-  display: block;
-}
+  .desc span:nth-child(2) {
+    display: block;
+  }
 }
 /* mobile/tablet/laptop/desktop */
 .difficulty-screen {
@@ -75,23 +89,23 @@ export default {
   margin-bottom: 0.52em;
 }
 .screen-header {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 700;
   font-size: 30px;
   color: #000000;
 }
 .screen-sub-header {
-  font-family: 'Fira Sans';
+  font-family: "Fira Sans";
   word-spacing: 0.5px;
   opacity: 0.45;
-  margin-bottom: 0.7em;
 }
 /* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
-   /* descriptions that need a line break on mobile have a span wrapping each desc string */
-   .desc {
-     text-align: left;
-   }
+  /* descriptions that need a line break on mobile have a span wrapping each desc string */
+  /* in parent element because vue scoped styles do not apply to spa v-html attribtues */
+  .desc {
+    text-align: left;
+  }
 
   .difficulty-screen {
     padding-top: 30px;
@@ -104,6 +118,10 @@ export default {
     margin-left: 2rem;
     font-size: 30pt !important;
     line-height: 1;
+    margin-top: 3rem;
+  }
+  .screen-sub-header {
+    margin-bottom: 0.7em;
   }
   .modal-dialog {
     bottom: 0;
@@ -152,6 +170,7 @@ export default {
   .screen-sub-header {
     text-align: center;
     font-size: 12px;
+    margin-bottom: 1.7em;
   }
 }
 </style>

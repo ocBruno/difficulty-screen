@@ -3,8 +3,8 @@
     <!-- Modal -->
     <div
       class="modal fade"
-      :id="item.key + '-modal'"
-      :ref="item.key + '-modal'"
+      :id="activeModalKey + '-modal'"
+      :ref="activeModalKey + '-modal'"
       tabindex="-1"
       role="dialog"
       aria-labelledby="difficulty-modal"
@@ -12,13 +12,13 @@
     >
       <img
         src="../assets/pale-waiting.png"
-        :class="{ 'modal-bg': true, 'modal-bg-closed': !this.isModalVisible }"
+        :class="{ 'modal-bg': true, 'modal-bg-closed': !isModalVisible }"
       />
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="difficulty-modal">
-              {{ item.modalHeader }}
+              {{ item.modal.header }}
             </h5>
             <button
               type="button"
@@ -31,7 +31,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body text-left" v-html="item.modalDesc"></div>
+          <div class="modal-body text-left" v-html="item.modal.desc"></div>
         </div>
       </div>
     </div>
@@ -39,28 +39,30 @@
 </template>
 
 <script>
-import $ from 'jquery'
+import $ from "jquery"
 
 export default {
-  name: 'DifficultySelectorItemModal',
+  name: "DifficultySelectorItemModal",
   props: {
     item: Object,
-    isModalVisible: Boolean
+    activeModalKey: String,
+    isModalVisible: Boolean,
+    isDisabled: Boolean
   },
   data: () => {
     return {
       isHovering: false
     }
   },
-  mounted () {
+  mounted() {
     // capture bootstrap modal close event
-    $(this.$refs[this.item.key + '-modal']).on('hidden.bs.modal', () =>
-      this.$emit('closeModal')
+    $(this.$refs[this.activeModalKey + "-modal"]).on("hidden.bs.modal", () =>
+      this.$emit("closeModal")
     )
   },
   methods: {
-    closeModal (key) {
-      $(`#${key}-modal`).modal('close')
+    closeModal() {
+      $(`#${this.activeModalKey}-modal`).modal("close")
     }
   }
 }
@@ -87,8 +89,8 @@ export default {
 }
 .modal-body {
   padding-top: 0.2rem;
-  font-family: 'Roboto';
-  padding-bottom: 2rem;
+  font-family: "Roboto";
+  padding-bottom: 1.6rem;
 }
 .close {
   padding: 0.2rem 0.2rem !important;
@@ -108,7 +110,7 @@ export default {
 }
 .modal-title {
   text-align: left;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 700;
   font-size: 24px;
   color: #000000;
@@ -120,8 +122,11 @@ export default {
 
 /* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
-    .close {
-    margin-top: -6rem !important;
+  .close {
+    margin-top: -5.04rem !important;
+  }
+  .modal-dialog {
+    margin: 20px;
   }
   .modal-bg {
     position: relative;
@@ -129,9 +134,9 @@ export default {
     left: 0 !important;
     width: 80%;
   }
-.modal-body {
-  font-size: 16px;
-}
+  .modal-body {
+    font-size: 16px;
+  }
 }
 
 /* tablet/laptop/desktop */
@@ -143,9 +148,9 @@ export default {
     margin-top: 200px;
     width: 324px;
   }
-    .modal-body {
-  font-size: 13px;
-}
+  .modal-body {
+    font-size: 13px;
+  }
   .modal-bg {
     top: 22%;
   }

@@ -1,5 +1,7 @@
 <template>
   <div
+    @mouseover="onHover"
+    @mouseout="onMouseOut"
     :id="item.key"
     :class="{
       'col-sm-auto row align-self-center difficulty-selector-item': true,
@@ -8,26 +10,26 @@
       last: isLast
     }"
   >
+    <div id="screen-more-info-button">
+      <button
+        @click.stop="onInfoClick"
+        @mouseover="onInfoButtonHover"
+        @mouseout="onInfoButtonMouseOut"
+        :class="{
+          'col-sm-auto more-info-button': true,
+          'more-info-button-active': item.isDisabled
+        }"
+      >
+        i
+      </button>
+    </div>
     <div
-      @mouseover="onHover"
-      @mouseout="onMouseOut"
       @click="onItemClick"
       :class="{
-        translucid: !isHovering,
-        opaque: isSelected
+        disabled: item.isDisabled,
+        opaque: !item.isDisabled
       }"
     >
-      <div id="screen-more-info-button">
-        <button
-          @click.stop="onInfoClick"
-          :class="{
-            'col-sm-auto more-info-button': true,
-            'more-info-button-active': !isSelected
-          }"
-        >
-          i
-        </button>
-      </div>
       <DifficultyStopwatchCurtinho
         v-if="item.key === 'curtinho'"
         :isHovering="isHovering"
@@ -45,19 +47,19 @@
         :isHovering="isHovering"
       />
       <span class="header-desc">
-      <div :class="{ header: true, 'header-hovering': isHovering }">
-        {{ item.header }}
-      </div>
-      <div
-        :class="{ desc: true, 'desc-hovering': isHovering }"
-        v-html="item.desc"
-      ></div>
+        <div :class="{ header: true, 'header-hovering': isHovering }">
+          {{ item.header }}
+        </div>
+        <div
+          :class="{ desc: true, 'desc-hovering': isHovering }"
+          v-html="item.desc"
+        ></div>
       </span>
       <button
         :class="{
           'select-button mx-auto': true,
           'select-button-hovering': isHovering,
-          opaque: isSelected
+          opaque: !item.isDisabled
         }"
       >
         SELECIONAR
@@ -68,7 +70,7 @@
         @click.stop="onInfoClick"
         :class="{
           'more-info-button': true,
-          'more-info-button-hover opaque': !isSelected
+          'more-info-button-hover opaque': item.isDisabled
         }"
       >
         <span> i </span>
@@ -93,14 +95,13 @@ export default {
   },
   props: {
     item: Object,
-    isDisabled: Boolean,
-    isSelected: Boolean,
     isFirst: Boolean,
     isLast: Boolean
   },
   data: () => {
     return {
-      isHovering: false
+      isHovering: false,
+      isInfoButtonHovering: false
     }
   },
   methods: {
@@ -111,12 +112,38 @@ export default {
     onMouseOut() {
       this.isHovering = false
     },
+    onInfoButtonHover() {
+      this.item.isInfoButtonHovering = true
+    },
+    onInfoButtonMouseOut() {
+      this.item.isInfoButtonHovering = false
+    },
     onItemClick() {
-      this.$emit("updateSelectedItem", this.item.key)
-      this.$emit("openInfoModal", this.item)
+        console.log(this.isInfoButtonHovering)
+
+      if (this.item.isDisabled && this.isInfoButtonHovering) {
+        console.log('info hovering')
+      } else if (this.item.isDisabled && !this.isInfoButtonHovering) {
+
+        this.$emit("onInfoClick", {
+          item: {
+            header: undefined,
+            desc: undefined,
+            modal: {
+              header: "Não disponível",
+              desc: `Alguns modos podem estar desabilitados por você porque não tem cartas suficientes para estudar.
+        <br/><br/> O importante é sempre que disponível, estudar pelo modo ideal ok?`
+            }
+          }
+        })
+      } else {
+        this.$emit("updateSelectedItem", this.item.key)
+      }
     },
     onInfoClick() {
-      this.$emit("openInfoModal", this.item)
+      console.log('test')
+      console.log(this.item)
+      this.$emit("onInfoClick", this.item)
     }
   },
   mounted() {},
@@ -133,9 +160,10 @@ export default {
 .opaque {
   opacity: 1 !important;
 }
-.translucid {
+.disabled {
   opacity: 0.5;
 }
+
 .header-desc {
   display: block;
 }
@@ -218,9 +246,12 @@ export default {
   display: inline-block;
 }
 
-#curtinho > div:first-child, #quase-la > div:first-child, #ideal > div:first-child, #hardcore > div:first-child {
+#curtinho > div:first-child,
+#quase-la > div:first-child,
+#ideal > div:first-child,
+#hardcore > div:first-child {
   margin-top: 0.52em;
-}  
+}
 button:focus {
   outline: none;
 }
@@ -235,21 +266,19 @@ button:focus {
   .stopwatch-container {
     margin-right: 0.8em !important;
   }
-
 }
 /* mobile */
 @media (min-width: 340px) and (max-width: 900px) {
-    .header-desc {
+  .header-desc {
     padding-top: 0.5em;
   }
 }
 /* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
-  
   .header-desc {
     display: inline-block;
     vertical-align: middle;
-  }  
+  }
   .stopwatch-container {
     margin-right: 0.8em !important;
   }
@@ -303,14 +332,21 @@ button:focus {
 
 /* tablet/laptop/desktop */
 @media (min-width: 721px) and (max-width: 1960px) {
-.desc-hovering, .header-hovering {
-  transform: translateY(-1px);
-}
-.select-button-hovering {
-  transform: scale(1.01);
-  color: #fff;
-  background-color: #4ebaff;
-}
+  .difficulty-selector-item {
+    display: block !important;
+  }
+  .desc-hovering,
+  .header-hovering {
+    transform: translateY(-1px);
+  }
+  .desc {
+    margin-bottom: 1.28em;
+  }
+  .select-button-hovering {
+    transform: scale(1.01);
+    color: #fff;
+    background-color: #4ebaff;
+  }
   .first {
     margin-left: 0 !important;
   }
