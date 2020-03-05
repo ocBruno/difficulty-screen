@@ -93,9 +93,6 @@ export default {
   transition: transform 0.16s linear;
   opacity: 0.8;
 }
-.stopwatch:hover {
-  opacity: 1 !important;
-}
 .stopwatch-screen {
   margin-bottom: 0.52em;
 }

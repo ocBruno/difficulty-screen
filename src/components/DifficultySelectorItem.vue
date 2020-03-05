@@ -217,6 +217,8 @@ export default {
   opacity: 1;
   width: 22px;
   height: 22px;
+  font-weight: 700;
+
   transition: border 100ms linear;
 }
 #mobile-more-info-button {
@@ -328,7 +330,6 @@ button:focus {
     margin-bottom: auto !important;
     margin-left: auto !important;
     padding-bottom: 1px;
-    font-weight: 700;
   }
   #screen-more-info-button {
     display: none !important;
@@ -374,9 +375,8 @@ button:focus {
   }
   .more-info-button {
     display: inline-block !important;
-    width: 20px !important;
     margin-bottom: 1.2em;
-    font-weight: 400;
+    line-height: 1;
   }
   #mobile-more-info-button {
     display: none !important;
