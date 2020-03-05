@@ -65,9 +65,7 @@ export default {
 
 <style scoped>
 /* mobile/tablet/laptop/desktop */
-.modal-open .modal { 
-  background: #000000cf;
-}
+
 .modal {
   user-select: none;
 }
@@ -133,6 +131,9 @@ export default {
 
 /* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
+  .modal-open .modal { 
+  background: #000000cf;
+}
   .modal-header .close {
     transform: scale(1.24);
   }
@@ -162,6 +163,9 @@ export default {
   .close {
     margin: -1.6rem -4.7rem -1rem auto !important;
   }
+    .modal-open .modal { 
+  background: #0000006b;
+}
   .modal-dialog {
     margin-top: 200px;
     width: 20.8rem;
