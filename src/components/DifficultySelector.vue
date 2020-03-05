@@ -52,7 +52,7 @@ export default {
           modal: {
             header: 'Não disponível',
             desc: `Alguns modos podem estar desabilitados por você porque não tem cartas suficientes para estudar.
-        <div class="desc-break">O importante é sempre que disponível, estudar pelo modo <b> ideal </b> ok?`
+        O importante é sempre que disponível, estudar pelo modo <b> ideal </b> ok?`
           }
         }
       } else {

@@ -43,7 +43,7 @@ export default {
         },
         {
           header: "Ideal",
-          desc: "<span>45 minutos a</span> <span>1 hora de estudo</span>",
+          desc: "45' a 1 hora de estudo",
           key: "ideal",
           modal: {
             header: "Ideal!",
@@ -53,7 +53,7 @@ export default {
         },
         {
           header: "Hardcore",
-          desc: "<span>Mais de uma</span> <span>hora de estudo</span>",
+          desc: "Mais de 1 hora de estudo",
           key: "hardcore",
           modal: {
             header: "Hardcore!",
@@ -109,6 +109,7 @@ export default {
   font-family: "Fira Sans";
   word-spacing: 0.5px;
   opacity: 0.45;
+  line-height: 1.4;
 }
 /* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
@@ -127,7 +128,7 @@ export default {
   .screen-header {
     text-align: left;
     margin-left: 2rem;
-    font-size: 30pt !important;
+    font-size: 26pt;
     line-height: 1;
     margin-top: 1rem;
   }
