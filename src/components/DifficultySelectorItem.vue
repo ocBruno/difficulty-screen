@@ -161,6 +161,7 @@ export default {
 </script>
 
 <style scoped>
+
 /* mobile/tablet/laptop/desktop */
 .opaque {
   opacity: 1 !important;
@@ -207,7 +208,7 @@ export default {
 .more-info-button {
   padding: 0px;
   margin-left: 1px;
-  border: 2px solid #aaaaaa26;
+  border: 2x solid #aaaaaa26;
   font-size: 11pt;
   font-family: 'Roboto';
   border-radius: 24px;
@@ -224,10 +225,14 @@ export default {
   margin-top: auto;
   margin-bottom: auto;
 }
+#mobile-more-info-button > .more-info-button {
+  border: 2px solid rgb(231, 231, 231);
+}
+
 .more-info-button:hover {
   border: 2px solid #76d4ff;
 }
-.more-info-button-disabled {
+#mobile-more-info-button > .more-info-button-disabled {
   border: 2px solid #76d4ff;
 }
 

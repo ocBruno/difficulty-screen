@@ -71,6 +71,9 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600|Roboto:100,300,400,700&display=swap");
+.difficulty-screen {
+  background: #f0f0f0;
+}
 /* iphone 5 and other 320px */
 @media (min-width: 320px) and (max-width: 380px) {
   .desc span:nth-child(2) {
@@ -85,9 +88,7 @@ export default {
 .desc-break {
   margin-top: 0.8em;
 }
-.difficulty-screen {
-  background: #f0f0f0;
-}
+
 .stopwatch {
   transition: transform 0.16s linear;
   opacity: 0.8;
@@ -118,7 +119,7 @@ export default {
   }
 
   .difficulty-screen {
-    padding-top: 30px;
+    padding-top: 5px;
   }
   .stopwatch {
     height: 100%;
@@ -128,7 +129,7 @@ export default {
     margin-left: 2rem;
     font-size: 30pt !important;
     line-height: 1;
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
   .screen-sub-header {
     width: 80%;
