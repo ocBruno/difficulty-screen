@@ -132,17 +132,7 @@ export default {
     onItemClick () {
       if (this.item.isDisabled && this.isInfoButtonHovering) {
       } else if (this.item.isDisabled && !this.isInfoButtonHovering) {
-        this.$emit('onInfoClick', {
-          item: {
-            header: undefined,
-            desc: undefined,
-            modal: {
-              header: 'Não disponível',
-              desc: `Alguns modos podem estar desabilitados por você porque não tem cartas suficientes para estudar.
-        <br/><br/> O importante é sempre que disponível, estudar pelo modo ideal ok?`
-            }
-          }
-        })
+        this.$emit('onInfoClick')
       } else {
         this.$emit('updateSelectedItem', this.item.key)
       }

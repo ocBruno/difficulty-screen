@@ -138,11 +138,15 @@ export default {
   }
   .modal-bg {
     position: relative;
-    top: 48%;
+    top: 25%;
     left: 0 !important;
     width: 80%;
   }
+  .modal-title {
+   font-size: 1.6em; 
+  }
   .modal-body {
+    line-height: 1.36;
     font-size: 16px;
   }
 }
