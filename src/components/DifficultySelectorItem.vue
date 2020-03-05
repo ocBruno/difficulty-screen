@@ -306,7 +306,8 @@ button:focus {
     min-width: 6rem;
     background: #fff;
     border-radius: 20px;
-    height: 4.8rem;
+    padding-top: 0.48em;
+    padding-bottom: 0.48em;
     margin: 0.48em 0em !important;
     box-shadow: 0px 0px 12px -1px rgba(0,0,0,0.28);
   }

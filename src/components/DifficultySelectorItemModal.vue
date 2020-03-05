@@ -70,7 +70,7 @@ export default {
 }
 .modal-bg {
   position: absolute;
-  left: 22%;
+  left: 19%;
   opacity: 1;
   transition: opacity 150ms ease-in-out;
   pointer-events: none;
@@ -86,7 +86,7 @@ export default {
 .modal-body {
   font-family: 'Roboto';
   padding-bottom: 1.2rem;
-  padding-top: 0.48rem;
+  padding-top: 0.2rem;
 }
 .close {
   display: flex;
@@ -143,7 +143,7 @@ export default {
     width: 80%;
   }
   .modal-title {
-   font-size: 1.6em; 
+   font-size: 1.8em; 
   }
   .modal-body {
     line-height: 1.36;

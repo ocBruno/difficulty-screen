@@ -47,7 +47,8 @@ export default {
           key: "ideal",
           modal: {
             header: "Ideal!",
-            desc: `Perfeito! Esse modo garante o tempo de prática necessária para atingir seus objetivos ao longo prazo. Pode ser que em alguns dias não tenha cartas suficientes para estudar, mas sempre que disponível, procure utilizer esse modo!`
+            desc: `Perfeito! Esse modo garante o tempo de prática necessária para atingir seus objetivos ao longo prazo.
+            <br/> <br/> Pode ser que em alguns dias não tenha cartas suficientes para estudar, mas sempre que disponível, procure utilizer esse modo!`
           },
           isDisabled: false
         },
