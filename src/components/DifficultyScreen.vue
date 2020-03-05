@@ -82,7 +82,6 @@ export default {
 
 .stopwatch {
   transition: transform 0.16s linear;
-    filter: saturate(0.8)
 
 }
 .stopwatch-screen {

@@ -26,6 +26,7 @@ export default {
   height: 100vh;
 }
 body {
+  padding: 0 !important;
   height: 100vh;
   background-color: #F0F0F0;
   margin: 0;
