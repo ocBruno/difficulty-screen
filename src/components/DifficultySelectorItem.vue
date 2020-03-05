@@ -225,14 +225,16 @@ export default {
   margin-top: auto;
   margin-bottom: auto;
 }
-#mobile-more-info-button > .more-info-button {
+#mobile-more-info-button > .more-info-button, #screen-more-info-button > .more-info-button {
   border: 2px solid rgb(231, 231, 231);
 }
-
-.more-info-button:hover {
+#mobile-more-info-button > .more-info-button:hover, #screen-more-info-button > .more-info-button:hover {
   border: 2px solid #76d4ff;
+
 }
-#mobile-more-info-button > .more-info-button-disabled {
+
+
+#mobile-more-info-button > .more-info-button-disabled, #screen-more-info-button > .more-info-button-disabled{
   border: 2px solid #76d4ff;
 }
 
