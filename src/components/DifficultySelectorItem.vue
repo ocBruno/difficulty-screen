@@ -309,6 +309,7 @@ button:focus {
     border-radius: 20px;
     height: 4.8rem;
     margin: 0.48em 0em !important;
+    box-shadow: 0px 0px 12px -1px rgba(0,0,0,0.28);
   }
   .select-button {
     display: none !important;

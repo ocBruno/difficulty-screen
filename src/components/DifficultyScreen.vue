@@ -72,9 +72,13 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600|Roboto:100,300,400,700&display=swap");
 /* iphone 5 and other 320px */
-@media (min-width: 320px) and (max-width: 340px) {
+@media (min-width: 320px) and (max-width: 380px) {
   .desc span:nth-child(2) {
     display: block;
+  }
+  .screen-header {
+    margin-top: 2rem;
+
   }
 }
 /* mobile/tablet/laptop/desktop */
@@ -127,6 +131,7 @@ export default {
     margin-top: 3rem;
   }
   .screen-sub-header {
+    width: 80%;
     margin-bottom: 0.7em;
   }
   .modal-dialog {
