@@ -27,7 +27,7 @@ export default {
 }
 body {
   padding: 0 !important;
-  height: 100vh;
+  overflow: hidden;
   background-color: #F0F0F0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

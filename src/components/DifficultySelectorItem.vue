@@ -266,9 +266,12 @@ button:focus {
     vertical-align: middle;
     padding-top: 0.55em;
   }
+.difficulty-selector-item {
+    padding-left: 1em;
 
+}
   .stopwatch-container {
-    margin-right: 0.8em !important;
+    margin-right: 0.4em !important;
   }
 }
 /* mobile */
@@ -284,7 +287,7 @@ button:focus {
     vertical-align: middle;
   }
   .stopwatch-container {
-    margin-right: 0.8em !important;
+    margin-right: 0.8em;
   }
   .header {
     font-size: 14pt !important;
@@ -308,8 +311,8 @@ button:focus {
     border-radius: 20px;
     padding-top: 0.48em;
     padding-bottom: 0.48em;
-    margin: 0.48em 0em !important;
-    box-shadow: 0px 0px 12px -1px rgba(0,0,0,0.28);
+    margin: 0.68em 0em !important;
+    box-shadow: 0px 7px 10px -6px rgba(0, 0, 0, 0.5);
   }
   .select-button {
     display: none !important;

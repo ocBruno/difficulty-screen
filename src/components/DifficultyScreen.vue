@@ -100,14 +100,17 @@ export default {
   line-height: 1.4;
 }
 /* iphone 5 and other 320px */
-@media (min-width: 320px) and (max-width: 380px) {
+@media (min-width: 320px) and (max-width: 374px) {
   .desc span:nth-child(2) {
     display: block;
   }
   .screen-header {
-    margin-top: 2rem;
-
+    margin-top: 3rem;
   }
+}
+/* wide phones */
+@media (min-width: 375px) and (max-width: 720px) {
+
 }
 /* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
@@ -128,7 +131,7 @@ export default {
     margin-left: 2.4rem;
     font-size: 26pt;
     line-height: 1;
-    margin-top: 1rem;
+    margin-top: 3rem;
   }
   .modal-dialog {
     bottom: 0;
@@ -147,6 +150,9 @@ export default {
     margin-left: 2.4rem;
     font-size: 14px;
     text-align: left;
+  }
+  .screen-header {
+    width: 80%;
   }
 }
 

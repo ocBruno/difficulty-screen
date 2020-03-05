@@ -11,7 +11,7 @@
       aria-hidden="true"
     >
       <img
-        src="../assets/png/pale-waiting.png"
+        src="https://carneiro.s3-sa-east-1.amazonaws.com/public/assets/icons/difficulty_modal_bg.png"
         class="modal-bg"
       />
       <div class="modal-dialog" role="document">
