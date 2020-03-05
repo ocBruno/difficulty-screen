@@ -65,6 +65,9 @@ export default {
 
 <style scoped>
 /* mobile/tablet/laptop/desktop */
+.modal-open .modal { 
+  background: #000000cf;
+}
 .modal {
   user-select: none;
 }
@@ -130,6 +133,9 @@ export default {
 
 /* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
+  .modal-header .close {
+    transform: scale(1.24);
+  }
   .close {
     margin-top: -5.04rem !important;
   }

@@ -37,7 +37,7 @@ export default {
             header: "Quase lá...",
             desc: `Estamos no caminho certo! 
              <br/> <br/>
-             Caso não tenha cartas para o modo ideal, tudo bem estudar por esse.`
+             Caso não tenha cartas para o modo <b> ideal </b>, tudo bem estudar por esse.`
           },
           isDisabled: false
         },
@@ -125,14 +125,10 @@ export default {
   }
   .screen-header {
     text-align: left;
-    margin-left: 2rem;
+    margin-left: 2.4rem;
     font-size: 26pt;
     line-height: 1;
     margin-top: 1rem;
-  }
-  .screen-sub-header {
-    width: 80%;
-    margin-bottom: 0.7em;
   }
   .modal-dialog {
     bottom: 0;
@@ -145,10 +141,12 @@ export default {
     opacity: 0 !important;
   }
   .screen-sub-header {
+    width: 80%;
     margin-top: 1em;
-    text-align: left;
+    margin-bottom: 1em;
+    margin-left: 2.4rem;
     font-size: 14px;
-    margin-left: 2rem;
+    text-align: left;
   }
 }
 
