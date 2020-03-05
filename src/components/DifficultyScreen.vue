@@ -75,16 +75,6 @@ export default {
 .difficulty-screen {
   background: #f0f0f0;
 }
-/* iphone 5 and other 320px */
-@media (min-width: 320px) and (max-width: 380px) {
-  .desc span:nth-child(2) {
-    display: block;
-  }
-  .screen-header {
-    margin-top: 2rem;
-
-  }
-}
 /* mobile/tablet/laptop/desktop */
 .desc-break {
   margin-top: 0.8em;
@@ -92,7 +82,8 @@ export default {
 
 .stopwatch {
   transition: transform 0.16s linear;
-  opacity: 0.8;
+    filter: saturate(0.8)
+
 }
 .stopwatch-screen {
   margin-bottom: 0.52em;
@@ -108,6 +99,16 @@ export default {
   word-spacing: 0.5px;
   opacity: 0.45;
   line-height: 1.4;
+}
+/* iphone 5 and other 320px */
+@media (min-width: 320px) and (max-width: 380px) {
+  .desc span:nth-child(2) {
+    display: block;
+  }
+  .screen-header {
+    margin-top: 2rem;
+
+  }
 }
 /* mobile */
 @media (min-width: 320px) and (max-width: 720px) {
@@ -157,7 +158,7 @@ export default {
   }
   .stopwatch-bounce {
     transform: translateY(-6px);
-    opacity: 1;
+    filter: saturate(1.4)
   }
 
   .stopwatch-mobile > img {

@@ -157,7 +157,7 @@ export default {
   opacity: 1 !important;
 }
 .disabled {
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
 .header-desc {
@@ -354,7 +354,6 @@ button:focus {
     margin-bottom: 1.28em;
   }
   .select-button-hovering {
-    transform: scale(1.01);
     color: #fff;
     background-color: #4ebaff;
   }

@@ -71,7 +71,7 @@ export default {
 }
 .modal-bg {
   position: absolute;
-  left: 19%;
+  left: 18.4%;
   opacity: 1;
   transition: opacity 150ms ease-in-out;
   pointer-events: none;
